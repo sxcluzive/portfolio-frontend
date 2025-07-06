@@ -11,6 +11,7 @@ import { ViewProvider, useView } from './contexts/ViewContext';
 import ThemeSwitcher from './components/ThemeSwitcher';
 import ViewToggle from './components/ViewToggle';
 import { useIsMobile } from './hooks/useIsMobile';
+import { Analytics } from '@vercel/analytics/react';
 
 function AppContent() {
   const { theme } = useTheme();
@@ -54,6 +55,7 @@ function App() {
     <ThemeProvider>
       <ViewProvider>
         <AppContent />
+        <Analytics />
       </ViewProvider>
     </ThemeProvider>
   );
