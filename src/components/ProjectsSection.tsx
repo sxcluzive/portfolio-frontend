@@ -28,7 +28,7 @@ const ProjectsSection = () => {
         >
           {!isDeveloperMode && (
             <>
-              <h2 className="text-5xl font-bold bg-gradient-to-r from-slate-900 via-blue-900 to-indigo-900 dark:from-white dark:via-blue-100 dark:to-indigo-100 bg-clip-text text-transparent mb-4">Projects</h2>
+              <h2 className="text-5xl font-bold text-slate-900 dark:text-white mb-4">Projects</h2>
               <p className="text-xl text-slate-600 dark:text-slate-300">My recent work and code examples</p>
             </>
           )}
@@ -52,7 +52,7 @@ const ProjectsSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: index * 0.2 }}
               viewport={{ once: true }}
-              className={`overflow-hidden hover:shadow-lg transition-all duration-300 flex flex-col ${!isDeveloperMode ? 'bg-white/80 dark:bg-slate-900/60 border border-slate-200/60 dark:border-slate-700/60 rounded-2xl shadow-xl backdrop-blur-xl hover:scale-105 hover:shadow-2xl' : 'bg-[var(--terminal-bg)] border border-[var(--terminal-border)] rounded-lg hover:border-[var(--matrix)]'}`}
+              className={`overflow-hidden hover:shadow-lg transition-all duration-300 flex flex-col will-change-transform ${!isDeveloperMode ? 'bg-white/80 dark:bg-slate-900/60 border border-slate-200/60 dark:border-slate-700/60 rounded-2xl shadow-xl backdrop-blur-xl hover:scale-105 hover:shadow-2xl' : 'bg-[var(--terminal-bg)] border border-[var(--terminal-border)] rounded-lg hover:border-[var(--matrix)]'}`}
             >
               <div className="p-4 flex-1">
                 <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-4">

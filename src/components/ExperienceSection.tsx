@@ -35,7 +35,7 @@ const ExperienceSection = () => {
               {/* Timeline dot */}
               <div className="absolute -left-8 top-4 w-4 h-4 bg-blue-500 rounded-full border-4 border-white dark:border-gray-900 shadow-md"></div>
 
-              <div className="bg-white/60 dark:bg-gray-900/40 border border-gray-200/40 dark:border-gray-800/40 rounded-xl p-6 shadow-md backdrop-blur-md hover:scale-105 transition-all duration-300">
+              <div className="bg-white/60 dark:bg-gray-900/40 border border-gray-200/40 dark:border-gray-800/40 rounded-xl p-6 shadow-md backdrop-blur-md hover:scale-105 transition-all duration-300 will-change-transform">
                 <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
                   <div>
                     <h3 className="text-2xl font-bold text-gray-800 dark:text-gray-200 mb-2">
