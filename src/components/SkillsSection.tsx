@@ -39,7 +39,7 @@ const SkillsSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: index * 0.2 }}
               viewport={{ once: true }}
-              className="bg-white/60 dark:bg-gray-900/40 border border-gray-200/40 dark:border-gray-800/40 rounded-xl p-6 shadow-md backdrop-blur-md hover:scale-105 transition-all duration-300 will-change-transform"
+              className="bg-white/60 dark:bg-gray-900/40 border border-gray-200/40 dark:border-gray-800/40 rounded-xl p-6 shadow-md backdrop-blur hover:scale-105 transition-all duration-300 will-change-transform"
             >
               <div className="flex items-center mb-4">
                 {getIcon(skill.category)}

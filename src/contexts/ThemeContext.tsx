@@ -1,6 +1,6 @@
 import { createContext, useContext, useState, type ReactNode } from 'react';
 
-export type Theme = 'matrix' | 'macos' | 'ubuntu';
+export type Theme = 'light' | 'matrix' | 'macos' | 'ubuntu';
 
 interface ThemeContextType {
   theme: Theme;
@@ -15,7 +15,7 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
 
   const cycleTheme = () => {
     setTheme((prev) =>
-      prev === 'matrix' ? 'macos' : prev === 'macos' ? 'ubuntu' : 'matrix'
+      prev === 'light' ? 'matrix' : prev === 'matrix' ? 'macos' : prev === 'macos' ? 'ubuntu' : 'light'
     );
   };
 

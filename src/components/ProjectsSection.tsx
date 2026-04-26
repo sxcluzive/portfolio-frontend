@@ -52,7 +52,7 @@ const ProjectsSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: index * 0.2 }}
               viewport={{ once: true }}
-              className={`overflow-hidden hover:shadow-lg transition-all duration-300 flex flex-col will-change-transform ${!isDeveloperMode ? 'bg-white/80 dark:bg-slate-900/60 border border-slate-200/60 dark:border-slate-700/60 rounded-2xl shadow-xl backdrop-blur-xl hover:scale-105 hover:shadow-2xl' : 'bg-[var(--terminal-bg)] border border-[var(--terminal-border)] rounded-lg hover:border-[var(--matrix)]'}`}
+              className={`overflow-hidden hover:shadow-lg transition-all duration-300 flex flex-col will-change-transform ${!isDeveloperMode ? 'bg-white/80 dark:bg-slate-900/60 border border-slate-200/60 dark:border-slate-700/60 rounded-2xl shadow-xl backdrop-blur hover:shadow-2xl' : 'bg-[var(--terminal-bg)] border border-[var(--terminal-border)] rounded-lg hover:border-[var(--matrix)]'}`}
             >
               <div className="p-4 flex-1">
                 <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-4">

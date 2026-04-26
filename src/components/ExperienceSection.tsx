@@ -1,12 +1,25 @@
-import { motion } from 'framer-motion';
+import { motion, useMotionValue, useTransform, useSpring, useScroll } from 'framer-motion';
 import { portfolioData } from '../data/portfolio-data';
 import { Calendar, MapPin, Building, CheckCircle } from 'lucide-react';
+import { useRef } from 'react';
 
 const ExperienceSection = () => {
   const experience = portfolioData.experience;
+  const containerRef = useRef<HTMLDivElement>(null);
+  
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start end", "end end"]
+  });
+
+  const scaleY = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001
+  });
 
   return (
-    <section id="experience" className="min-h-screen bg-gradient-to-br from-gray-50 via-blue-50 to-gray-200 dark:from-gray-900 dark:via-gray-950 dark:to-gray-800 py-20">
+    <section id="experience" ref={containerRef} className="min-h-screen bg-gradient-to-br from-gray-50 via-blue-50 to-gray-200 dark:from-gray-900 dark:via-gray-950 dark:to-gray-800 py-20">
       <div className="container mx-auto px-[10%]">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -20,8 +33,14 @@ const ExperienceSection = () => {
         </motion.div>
 
         <div className="relative">
-          {/* Timeline line */}
-          <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-blue-500/30 dark:bg-blue-400/30"></div>
+          {/* Timeline background line */}
+          <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-blue-500/10 dark:bg-blue-400/10"></div>
+          
+          {/* Animated fill line */}
+          <motion.div 
+            style={{ scaleY, originY: 0 }}
+            className="absolute left-8 top-0 bottom-0 w-0.5 bg-blue-500 dark:bg-blue-400 shadow-[0_0_10px_rgba(59,130,246,0.5)]"
+          ></motion.div>
 
           {experience.map((job, index) => (
             <motion.div
@@ -35,7 +54,7 @@ const ExperienceSection = () => {
               {/* Timeline dot */}
               <div className="absolute -left-8 top-4 w-4 h-4 bg-blue-500 rounded-full border-4 border-white dark:border-gray-900 shadow-md"></div>
 
-              <div className="bg-white/60 dark:bg-gray-900/40 border border-gray-200/40 dark:border-gray-800/40 rounded-xl p-6 shadow-md backdrop-blur-md hover:scale-105 transition-all duration-300 will-change-transform">
+              <div className="bg-white/60 dark:bg-gray-900/40 border border-gray-200/40 dark:border-gray-800/40 rounded-xl p-6 shadow-md backdrop-blur transition-all duration-300 will-change-transform">
                 <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
                   <div>
                     <h3 className="text-2xl font-bold text-gray-800 dark:text-gray-200 mb-2">
