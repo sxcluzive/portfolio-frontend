@@ -1,3 +1,8 @@
+// All content comes from resume.json — edit THAT file to update the portfolio.
+// Code previews are kept here since multi-line strings are awkward in JSON.
+
+import resumeData from './resume.json';
+
 export interface Profile {
   name: string;
   role: string;
@@ -44,89 +49,9 @@ export interface Metric {
   description: string;
 }
 
-export const portfolioData = {
-  profile: {
-    name: "Shubham Singh",
-    role: "Software Engineer 2",
-    company: "Sierra Wireless (Semtech)",
-    location: "Pune, India",
-    email: "shubh.message@gmail.com",
-    github: "github.com/shubhxcluzive",
-    linkedin: "linkedin.com/in/shubhxcluzive",
-    leetcode: "leetcode.com/u/shubhxcluzive/",
-    phone: "+91 9956023261",
-    experienceYears: 4,
-    specialization: ["Backend Development", "Distributed Systems", "LLM Integration", "System Design"]
-  },
-
-  skills: [
-    {
-      category: "Languages & Backend",
-      technologies: ["Python", "FastAPI", "Django", "REST APIs", "System Design", "Microservices", "Asynchronous Processing (Celery, WebSockets)"]
-    },
-    {
-      category: "Databases & Caching",
-      technologies: ["PostgreSQL", "Redis", "Elasticsearch", "Snowflake"]
-    },
-    {
-      category: "Cloud & AI Systems",
-      technologies: ["AWS (EC2, S3, Lambda)", "Azure", "Docker", "LLM Integration", "RAG (Retrieval-Augmented Generation)"]
-    }
-  ],
-
-  experience: [
-    {
-      company: "Sierra Wireless (Semtech)",
-      position: "Software Engineer 2",
-      duration: "Sept 2023 - Present",
-      location: "Pune, India",
-      startDate: "2023-09",
-      endDate: null,
-      achievements: [
-        "Designed and implemented a multi-stage NL→SQL pipeline adopted by 100+ users, reducing time-to-insight from days to minutes; built LLM-based query generation with entity extraction using Neo4j, async execution via Celery, WebSocket streaming and a Human-in-the-Loop (HITL) fallback for query validation on Snowflake.",
-        "Designed a semantic caching layer using embedding-based similarity with Redis, reducing repeated query latency from minutes to under 100 ms and significantly lowering LLM inference costs for high-overlap queries across business units.",
-        "Led development of a multi-level (L1/L2/L3) approval state machine replacing a manual spreadsheet and email-based workflow for $50M annually in Restricted Cash Awards; enforced strict Pydantic validation and parameterized SQL to ensure data integrity, mitigate injection risks and enable end-to-end auditability.",
-        "Established code review practices and mentored junior engineers on distributed systems and performance optimization, reducing post-release defects by 20%."
-      ],
-      technologies: ["Python", "FastAPI", "REST APIs", "Database Design", "Distributed Systems", "Caching (Redis)", "Async Processing (Celery)"]
-    },
-    {
-      company: "Zscaler",
-      position: "Associate Software Engineer",
-      duration: "Dec 2021 - Feb 2023",
-      location: "Mohali, India",
-      startDate: "2021-12",
-      endDate: "2023-02",
-      achievements: [
-        "Implemented app-level retry logic with exponential backoff, reducing transient API failures by 8% and improving overall service reliability.",
-        "Reduced peak-load API latency by 45% through query optimization, indexing and app-level caching, improving reliability under increased traffic.",
-        "Led API contract standardization initiative adopted by multiple partner teams, improving cross-team integration velocity by 25%."
-      ],
-      technologies: ["Python", "Django", "Linux", "RESTful APIs", "Ubuntu Linux", "Linux tools", "Scripting", "Git"]
-    },
-    {
-      company: "Zscaler",
-      position: "Intern - Cloud Reliability",
-      duration: "Mar 2021 - Nov 2021",
-      location: "Mohali, India",
-      startDate: "2021-03",
-      endDate: "2021-11",
-      achievements: [
-        "Revamped & automated ZCC-cloud build validation scripts, proactively detecting 8+ critical issues pre-release & accelerating deployment cycles.",
-        "Created a cross-platform testing solution using Sikuli and OpenCV that reduced manual QA effort by 40% for repetitive workflows."
-      ],
-      technologies: ["Python", "Django", "Fedora", "RESTful APIs", "Ubuntu Linux", "Linux tools", "Scripting", "Git"]
-    }
-  ],
-
-  projects: [
-    {
-      name: "Natural Language Querying AI chatbot",
-      description: "Developed SlackBot with Google Bard API to translate natural language queries into SQL, enabling intuitive interaction with SQLite DB.",
-      github: "https://github.com/sxcluzive/Slack-Bot",
-      technologies: ["Slack-Bolt Python Framework", "Google Bard API", "Docker", "SQLite"],
-      year: 2023,
-      code: `from slack_bolt import App
+// Code previews — rarely change, kept separate from JSON
+const codePreviews: Record<string, string> = {
+  "Natural Language Querying AI chatbot": `from slack_bolt import App
 import google.generativeai as genai
 import sqlite3
 from typing import Dict, Any
@@ -157,15 +82,9 @@ class DatabaseBot:
             results = self.execute_sql(sql)
             say(f"Query: {sql}\\nResults: {results}")
         except Exception as e:
-            say(f"Error: {str(e)}")`
-    },
-    {
-      name: "E-commerce API",
-      description: "Built e-commerce backend with FastAPI, PostgreSQL and SQLAlchemy with asynchronous request handling, indexed DB schema, and optimized queries to ensure high performance under concurrent user load.",
-      github: "https://github.com/sxcluzive/ecommerce-api",
-      technologies: ["FastAPI", "Celery", "Asyncio", "Redis", "JWT", "API design"],
-      year: 2021,
-      code: `from fastapi import FastAPI, Depends, HTTPException
+            say(f"Error: {str(e)}")`,
+
+  "E-commerce API": `from fastapi import FastAPI, Depends, HTTPException
 from sqlalchemy.ext.asyncio import AsyncSession, create_async_engine
 from sqlalchemy.orm import sessionmaker, declarative_base
 from typing import List, Optional
@@ -194,58 +113,17 @@ async def list_products(
     limit: int = 100
 ):
     products = await get_products(db, skip=skip, limit=limit)
-    return products`
-    }
-  ],
+    return products`,
+};
 
-  metrics: [
-    {
-      category: "performance",
-      metric: "cache_latency",
-      value: "<100ms",
-      description: "Semantic cache hit latency with Redis"
-    },
-    {
-      category: "performance",
-      metric: "api_optimization",
-      value: "45%",
-      description: "Peak-load API latency reduction"
-    },
-    {
-      category: "performance",
-      metric: "time_to_insight",
-      value: "Days→Min",
-      description: "NL→SQL pipeline reducing analyst wait time"
-    },
-    {
-      category: "impact",
-      metric: "pipeline_adoption",
-      value: "100+",
-      description: "Users adopted the NL→SQL pipeline"
-    },
-    {
-      category: "impact",
-      metric: "workflow_value",
-      value: "$50M",
-      description: "Annual Restricted Cash Awards managed via approval system"
-    },
-    {
-      category: "impact",
-      metric: "qa_efficiency",
-      value: "40%",
-      description: "Reduction in manual QA effort"
-    },
-    {
-      category: "impact",
-      metric: "defect_reduction",
-      value: "20%",
-      description: "Post-release defect reduction through code reviews & mentoring"
-    },
-    {
-      category: "impact",
-      metric: "integration_velocity",
-      value: "25%",
-      description: "Cross-team integration velocity improvement"
-    }
-  ]
-}; 
+// Merge resume.json data with code previews
+export const portfolioData = {
+  profile: resumeData.profile as Profile,
+  skills: resumeData.skills as Skill[],
+  experience: resumeData.experience as Experience[],
+  projects: resumeData.projects.map(project => ({
+    ...project,
+    code: codePreviews[project.name] || '',
+  })) as Project[],
+  metrics: resumeData.metrics as Metric[],
+};

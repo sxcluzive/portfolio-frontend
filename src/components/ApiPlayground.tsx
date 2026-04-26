@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Terminal } from 'lucide-react';
 import { useView } from '../contexts/ViewContext';
+import { portfolioData } from '../data/portfolio-data';
 
 // Generate API-focused activity data with current timestamps
 const generateApiActivities = () => {
@@ -79,6 +80,7 @@ interface RequestHistory {
   success: boolean;
 }
 
+// Derive endpoint examples from the single source of truth
 const apiEndpoints = [
   {
     endpoint: 'profile',
@@ -87,9 +89,9 @@ const apiEndpoints = [
     color: 'border-matrix text-matrix',
     icon: '👤',
     example: {
-      "name": "Shubham Singh",
-      "role": "Software Engineer 2",
-      "email": "shubh.message@gmail.com"
+      "name": portfolioData.profile.name,
+      "role": portfolioData.profile.role,
+      "email": portfolioData.profile.email
     }
   },
   {
@@ -99,8 +101,8 @@ const apiEndpoints = [
     color: 'border-cyan-glow text-cyan-glow',
     icon: '⚡',
     example: {
-      "languages": [ "Python", "FastAPI", "Django" ],
-      "databases": [ "PostgreSQL", "Redis", "Snowflake" ]
+      "categories": portfolioData.skills.map(s => s.category),
+      "total_technologies": portfolioData.skills.reduce((sum, s) => sum + s.technologies.length, 0)
     }
   },
   {
@@ -110,7 +112,7 @@ const apiEndpoints = [
     color: 'border-amber-glow text-amber-glow',
     icon: '💼',
     example: {
-      "companies": [ { "name": "Sierra Wireless (Semtech)", "role": "Software Engineer 2", "duration": "Sept 2023 - Present" } ]
+      "companies": [{ "name": portfolioData.experience[0].company, "role": portfolioData.experience[0].position, "duration": portfolioData.experience[0].duration }]
     }
   },
   {
@@ -120,199 +122,37 @@ const apiEndpoints = [
     color: 'border-red-glow text-red-glow',
     icon: '📊',
     example: {
-      "pipeline_adoption": "100+ users",
-      "cache_latency": "<100ms"
+      [portfolioData.metrics[0].metric]: portfolioData.metrics[0].value,
+      [portfolioData.metrics[3].metric]: portfolioData.metrics[3].value
     }
   },
 ];
 
+// Build mock API responses from the single source of truth (resume.json via portfolio-data.ts)
 const mockApiResponses: Record<string, any> = {
   profile: {
-    "id": 1,
-    "name": "Shubham Singh",
-    "role": "Software Engineer 2",
-    "company": "Sierra Wireless (Semtech)",
-    "location": "Pune, India",
-    "email": "shubh.message@gmail.com",
-    "github": "github.com/shubhxcluzive",
-    "linkedin": "linkedin.com/in/shubhxcluzive",
-    "leetcode": "leetcode.com/u/shubhxcluzive/",
-    "phone": "+91 9956023261",
-    "experienceYears": 4,
-    "specialization": [
-      "Backend Development",
-      "Distributed Systems",
-      "LLM Integration",
-      "System Design"
-    ]
+    id: 1,
+    ...portfolioData.profile,
   },
-  skills: [
-    {
-      "id": 2,
-      "category": "Languages & Backend",
-      "technologies": [
-        "Python",
-        "FastAPI",
-        "Django",
-        "REST APIs",
-        "System Design",
-        "Microservices",
-        "Asynchronous Processing (Celery, WebSockets)"
-      ]
-    },
-    {
-      "id": 3,
-      "category": "Databases & Caching",
-      "technologies": [
-        "PostgreSQL",
-        "Redis",
-        "Elasticsearch",
-        "Snowflake"
-      ]
-    },
-    {
-      "id": 4,
-      "category": "Cloud & AI Systems",
-      "technologies": [
-        "AWS (EC2, S3, Lambda)",
-        "Azure",
-        "Docker",
-        "LLM Integration",
-        "RAG (Retrieval-Augmented Generation)"
-      ]
-    }
-  ],
-  experience: [
-    {
-      "id": 5,
-      "company": "Sierra Wireless (Semtech)",
-      "role": "Software Engineer 2",
-      "duration": "Sept 2023 - Present",
-      "location": "Pune, India",
-      "startDate": "2023-09",
-      "endDate": null,
-      "achievements": [
-        "Designed and implemented a multi-stage NL→SQL pipeline adopted by 100+ users, reducing time-to-insight from days to minutes; built LLM-based query generation with entity extraction using Neo4j, async execution via Celery, WebSocket streaming and a Human-in-the-Loop (HITL) fallback for query validation on Snowflake.",
-        "Designed a semantic caching layer using embedding-based similarity with Redis, reducing repeated query latency from minutes to under 100 ms and significantly lowering LLM inference costs for high-overlap queries across business units.",
-        "Led development of a multi-level (L1/L2/L3) approval state machine replacing a manual spreadsheet and email-based workflow for $50M annually in Restricted Cash Awards; enforced strict Pydantic validation and parameterized SQL to ensure data integrity, mitigate injection risks and enable end-to-end auditability.",
-        "Established code review practices and mentored junior engineers on distributed systems and performance optimization, reducing post-release defects by 20%."
-      ],
-      "technologies": [
-        "Python",
-        "FastAPI",
-        "REST APIs",
-        "Database Design",
-        "Distributed Systems",
-        "Caching (Redis)",
-        "Async Processing (Celery)"
-      ]
-    },
-    {
-      "id": 6,
-      "company": "Zscaler",
-      "role": "Associate Software Engineer",
-      "duration": "Dec 2021 - Feb 2023",
-      "location": "Mohali, India",
-      "startDate": "2021-12",
-      "endDate": "2023-02",
-      "achievements": [
-        "Implemented app-level retry logic with exponential backoff, reducing transient API failures by 8% and improving overall service reliability.",
-        "Reduced peak-load API latency by 45% through query optimization, indexing and app-level caching, improving reliability under increased traffic.",
-        "Led API contract standardization initiative adopted by multiple partner teams, improving cross-team integration velocity by 25%."
-      ],
-      "technologies": [
-        "Python",
-        "Django",
-        "Linux",
-        "RESTful APIs",
-        "Ubuntu Linux",
-        "Linux tools",
-        "Scripting",
-        "Git"
-      ]
-    },
-    {
-      "id": 7,
-      "company": "Zscaler",
-      "role": "Intern - Cloud Reliability",
-      "duration": "Mar 2021 - Nov 2021",
-      "location": "Mohali, India",
-      "startDate": "2021-03",
-      "endDate": "2021-11",
-      "achievements": [
-        "Revamped & automated ZCC-cloud build validation scripts, proactively detecting 8+ critical issues pre-release & accelerating deployment cycles.",
-        "Created a cross-platform testing solution using Sikuli and OpenCV that reduced manual QA effort by 40% for repetitive workflows."
-      ],
-      "technologies": [
-        "Python",
-        "Django",
-        "Fedora",
-        "RESTful APIs",
-        "Ubuntu Linux",
-        "Linux tools",
-        "Scripting",
-        "Git"
-      ]
-    }
-  ],
-  metrics: [
-    {
-      "id": 10,
-      "category": "performance",
-      "metric": "cache_latency",
-      "value": "<100ms",
-      "description": "Semantic cache hit latency with Redis"
-    },
-    {
-      "id": 11,
-      "category": "performance",
-      "metric": "api_optimization",
-      "value": "45%",
-      "description": "Peak-load API latency reduction"
-    },
-    {
-      "id": 12,
-      "category": "performance",
-      "metric": "time_to_insight",
-      "value": "Days→Min",
-      "description": "NL→SQL pipeline reducing analyst wait time"
-    },
-    {
-      "id": 13,
-      "category": "impact",
-      "metric": "pipeline_adoption",
-      "value": "100+",
-      "description": "Users adopted the NL→SQL pipeline"
-    },
-    {
-      "id": 14,
-      "category": "impact",
-      "metric": "workflow_value",
-      "value": "$50M",
-      "description": "Annual Restricted Cash Awards managed via approval system"
-    },
-    {
-      "id": 15,
-      "category": "impact",
-      "metric": "qa_efficiency",
-      "value": "40%",
-      "description": "Reduction in manual QA effort"
-    },
-    {
-      "id": 16,
-      "category": "impact",
-      "metric": "defect_reduction",
-      "value": "20%",
-      "description": "Post-release defect reduction through code reviews & mentoring"
-    },
-    {
-      "id": 17,
-      "category": "impact",
-      "metric": "integration_velocity",
-      "value": "25%",
-      "description": "Cross-team integration velocity improvement"
-    }
-  ]
+  skills: portfolioData.skills.map((skill, i) => ({
+    id: i + 2,
+    ...skill,
+  })),
+  experience: portfolioData.experience.map((exp, i) => ({
+    id: i + 5,
+    company: exp.company,
+    role: exp.position, // API uses "role" instead of "position"
+    duration: exp.duration,
+    location: exp.location,
+    startDate: exp.startDate,
+    endDate: exp.endDate,
+    achievements: exp.achievements,
+    technologies: exp.technologies,
+  })),
+  metrics: portfolioData.metrics.map((metric, i) => ({
+    id: i + 10,
+    ...metric,
+  })),
 };
 
 function highlightJSON(json: any): string {

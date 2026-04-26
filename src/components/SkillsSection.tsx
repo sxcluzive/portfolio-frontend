@@ -6,16 +6,15 @@ const SkillsSection = () => {
   const skills = portfolioData.skills;
 
   const getIcon = (category: string) => {
-    switch (category.toLowerCase()) {
-      case 'backend development':
-        return <Code className="text-blue-500" />;
-      case 'database & cloud':
-        return <Database className="text-blue-500" />;
-      case 'ai/ml & devops':
-        return <Settings className="text-blue-500" />;
-      default:
-        return <Code className="text-blue-500" />;
+    const cat = category.toLowerCase();
+    if (cat.includes('backend') || cat.includes('languages')) {
+      return <Code className="text-blue-500" />;
+    } else if (cat.includes('database') || cat.includes('caching')) {
+      return <Database className="text-blue-500" />;
+    } else if (cat.includes('cloud') || cat.includes('ai') || cat.includes('devops')) {
+      return <Settings className="text-blue-500" />;
     }
+    return <Code className="text-blue-500" />;
   };
 
   return (
