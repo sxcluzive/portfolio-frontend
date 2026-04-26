@@ -52,19 +52,19 @@ const ProjectsSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: index * 0.2 }}
               viewport={{ once: true }}
-              className={`overflow-hidden hover:shadow-lg transition-all duration-300 flex flex-col ${!isDeveloperMode ? 'bg-white/80 dark:bg-slate-900/60 border border-slate-200/60 dark:border-slate-700/60 rounded-2xl shadow-xl backdrop-blur-xl hover:scale-105 hover:shadow-2xl' : 'bg-white border border-gray-200 rounded-lg'}`}
+              className={`overflow-hidden hover:shadow-lg transition-all duration-300 flex flex-col ${!isDeveloperMode ? 'bg-white/80 dark:bg-slate-900/60 border border-slate-200/60 dark:border-slate-700/60 rounded-2xl shadow-xl backdrop-blur-xl hover:scale-105 hover:shadow-2xl' : 'bg-[var(--terminal-bg)] border border-[var(--terminal-border)] rounded-lg hover:border-[var(--matrix)]'}`}
             >
               <div className="p-4 flex-1">
                 <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-4">
                   <div className="flex-1">
-                    <h3 className={`text-2xl font-bold mb-3 ${!isDeveloperMode ? 'text-slate-800 dark:text-slate-200' : 'text-gray-900'}`}>
+                    <h3 className={`text-2xl font-bold mb-3 ${!isDeveloperMode ? 'text-slate-800 dark:text-slate-200' : 'text-[var(--matrix)]'}`}>
                       {project.name}
                     </h3>
-                    <p className={`mb-3 leading-relaxed ${!isDeveloperMode ? 'text-slate-600 dark:text-slate-300' : 'text-gray-600'}`}>
+                    <p className={`mb-3 leading-relaxed ${!isDeveloperMode ? 'text-slate-600 dark:text-slate-300' : 'text-[var(--foreground)]'}`}>
                       {project.description}
                     </p>
                     
-                    <div className={`flex items-center mb-3 text-sm ${!isDeveloperMode ? 'text-slate-500 dark:text-slate-400' : 'text-gray-500'}`}>
+                    <div className={`flex items-center mb-3 text-sm ${!isDeveloperMode ? 'text-slate-500 dark:text-slate-400' : 'text-[var(--muted-foreground)]'}`}>
                       <Calendar size={16} className="mr-2" />
                       <span>{project.year}</span>
                     </div>
@@ -102,17 +102,17 @@ const ProjectsSection = () => {
               </div>
 
               {/* Code Preview */}
-              <div className={`border-t p-3 ${!isDeveloperMode ? 'bg-slate-50/80 dark:bg-slate-800/60 border-slate-200/60 dark:border-slate-700/60' : 'bg-gray-50 border-gray-200'}`}>
+              <div className={`border-t p-3 ${!isDeveloperMode ? 'bg-slate-50/80 dark:bg-slate-800/60 border-slate-200/60 dark:border-slate-700/60' : 'bg-[var(--terminal-gray)] border-[var(--terminal-border)]'}`}>
                 <div className="flex items-center justify-between mb-2">
                   <div className="flex items-center space-x-2">
-                    <Code size={16} className={`${!isDeveloperMode ? 'text-slate-600 dark:text-slate-400' : 'text-gray-600'}`} />
-                    <span className={`font-medium ${!isDeveloperMode ? 'text-slate-700 dark:text-slate-300' : 'text-gray-700'}`}>Code Preview</span>
+                    <Code size={16} className={`${!isDeveloperMode ? 'text-slate-600 dark:text-slate-400' : 'text-[var(--muted-foreground)]'}`} />
+                    <span className={`font-medium ${!isDeveloperMode ? 'text-slate-700 dark:text-slate-300' : 'text-[var(--foreground)]'}`}>Code Preview</span>
                   </div>
-                                      <div className={`text-sm font-mono ${!isDeveloperMode ? 'text-slate-500 dark:text-slate-400' : 'text-gray-500'}`}>
+                                      <div className={`text-sm font-mono ${!isDeveloperMode ? 'text-slate-500 dark:text-slate-400' : 'text-[var(--matrix)]'}`}>
                     Python
                   </div>
                 </div>
-                <pre className={`text-sm overflow-x-auto font-mono leading-relaxed p-3 rounded border shadow-sm h-48 ${!isDeveloperMode ? 'bg-white/90 dark:bg-slate-900/80 border-slate-200/60 dark:border-slate-700/60' : 'bg-white border-gray-200'}`}>
+                <pre className={`text-sm overflow-x-auto font-mono leading-relaxed p-3 rounded border shadow-sm h-48 ${!isDeveloperMode ? 'bg-white/90 dark:bg-slate-900/80 border-slate-200/60 dark:border-slate-700/60' : 'bg-[var(--terminal-bg)] border-[var(--terminal-border)]'}`}>
                   <code className="language-python">{project.code}</code>
                 </pre>
               </div>
