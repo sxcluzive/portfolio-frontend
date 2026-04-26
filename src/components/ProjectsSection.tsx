@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { portfolioData } from '../data/portfolio-data';
 import { Github, Code, Calendar, Terminal } from 'lucide-react';
-import { useEffect } from 'react';
+import { useView } from '../contexts/ViewContext';
 import Prism from 'prismjs';
 import 'prismjs/components/prism-python';
 import 'prismjs/themes/prism-tomorrow.css';

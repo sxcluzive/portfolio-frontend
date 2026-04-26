@@ -1,4 +1,4 @@
-import { motion, useMotionValue, useTransform, useSpring, useScroll } from 'framer-motion';
+import { motion, useSpring, useScroll } from 'framer-motion';
 import { portfolioData } from '../data/portfolio-data';
 import { Calendar, MapPin, Building, CheckCircle } from 'lucide-react';
 import { useRef } from 'react';
