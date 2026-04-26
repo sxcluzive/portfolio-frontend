@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { portfolioData } from '../data/portfolio-data';
-import { Code, Database, Settings } from 'lucide-react';
+import { Code, Database, Cloud } from 'lucide-react';
 
 const SkillsSection = () => {
   const skills = portfolioData.skills;
@@ -12,7 +12,7 @@ const SkillsSection = () => {
     } else if (cat.includes('database') || cat.includes('caching')) {
       return <Database className="text-blue-500" />;
     } else if (cat.includes('cloud') || cat.includes('ai') || cat.includes('devops')) {
-      return <Settings className="text-blue-500" />;
+      return <Cloud className="text-blue-500" />;
     }
     return <Code className="text-blue-500" />;
   };

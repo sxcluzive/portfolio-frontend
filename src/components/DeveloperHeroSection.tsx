@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Terminal, Code, Server } from 'lucide-react';
+import { Terminal, Server, Brain, Network } from 'lucide-react';
 import { portfolioData } from '../data/portfolio-data';
 
 const DeveloperHeroSection = () => {
@@ -60,15 +60,15 @@ const DeveloperHeroSection = () => {
             className="flex justify-center space-x-8 mb-8"
           >
             <div className="flex flex-col items-center space-y-2 bg-[var(--terminal-gray)] border border-[var(--terminal-border)] rounded-xl p-4 shadow-md backdrop-blur-md hover:scale-105 transition-transform">
-              <Code size={32} className="text-[var(--matrix)] drop-shadow-glow" />
+              <Server size={32} className="text-[var(--matrix)] drop-shadow-glow" />
               <span className="text-xs text-[var(--matrix)] font-mono">Backend</span>
             </div>
             <div className="flex flex-col items-center space-y-2 bg-[var(--terminal-gray)] border border-[var(--terminal-border)] rounded-xl p-4 shadow-md backdrop-blur-md hover:scale-105 transition-transform">
-              <Server size={32} className="text-[var(--matrix)] drop-shadow-glow" />
+              <Brain size={32} className="text-[var(--matrix)] drop-shadow-glow" />
               <span className="text-xs text-[var(--matrix)] font-mono">AI</span>
             </div>
             <div className="flex flex-col items-center space-y-2 bg-[var(--terminal-gray)] border border-[var(--terminal-border)] rounded-xl p-4 shadow-md backdrop-blur-md hover:scale-105 transition-transform">
-              <Server size={32} className="text-[var(--matrix)] drop-shadow-glow" />
+              <Network size={32} className="text-[var(--matrix)] drop-shadow-glow" />
               <span className="text-xs text-[var(--matrix)] font-mono">Distributed Systems</span>
             </div>
           </motion.div>

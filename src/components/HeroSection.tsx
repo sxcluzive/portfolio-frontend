@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Code, Database, Server } from 'lucide-react';
+import { Server, Brain, Network } from 'lucide-react';
 import { portfolioData } from '../data/portfolio-data';
 
 const scrollToSection = (target: string) => {
@@ -61,15 +61,15 @@ export default function HeroSection() {
             className="flex justify-center space-x-8 mb-8"
           >
             <div className="flex flex-col items-center space-y-2 bg-white/60 dark:bg-gray-900/40 border border-gray-200/40 dark:border-gray-800/40 rounded-xl p-4 shadow-md backdrop-blur-md hover:scale-105 transition-transform">
-              <Code size={32} className="text-blue-500" />
+              <Server size={32} className="text-blue-500" />
               <span className="text-xs text-gray-700 dark:text-gray-200 font-mono">Backend</span>
             </div>
             <div className="flex flex-col items-center space-y-2 bg-white/60 dark:bg-gray-900/40 border border-gray-200/40 dark:border-gray-800/40 rounded-xl p-4 shadow-md backdrop-blur-md hover:scale-105 transition-transform">
-              <Database size={32} className="text-blue-500" />
+              <Brain size={32} className="text-blue-500" />
               <span className="text-xs text-gray-700 dark:text-gray-200 font-mono">AI</span>
             </div>
             <div className="flex flex-col items-center space-y-2 bg-white/60 dark:bg-gray-900/40 border border-gray-200/40 dark:border-gray-800/40 rounded-xl p-4 shadow-md backdrop-blur-md hover:scale-105 transition-transform">
-              <Server size={32} className="text-blue-500" />
+              <Network size={32} className="text-blue-500" />
               <span className="text-xs text-gray-700 dark:text-gray-200 font-mono">Distributed Systems</span>
             </div>
           </motion.div>

@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { portfolioData } from '../data/portfolio-data';
-import { Calendar, MapPin, Building, Code } from 'lucide-react';
+import { Calendar, MapPin, Building, CheckCircle } from 'lucide-react';
 
 const ExperienceSection = () => {
   const experience = portfolioData.experience;
@@ -68,7 +68,7 @@ const ExperienceSection = () => {
                 {/* Achievements */}
                 <div className="mb-6">
                   <h4 className="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-3 flex items-center">
-                    <Code size={16} className="mr-2 text-blue-500" />
+                    <CheckCircle size={16} className="mr-2 text-blue-500" />
                     Key Achievements
                   </h4>
                   <ul className="space-y-2">
