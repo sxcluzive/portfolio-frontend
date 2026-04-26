@@ -102,19 +102,6 @@ export default function HeroSection() {
           </motion.div>
         </motion.div>
       </div>
-      {/* Custom keyframes for glow and pulse */}
-      <style>{`
-        @keyframes pulse-slow {
-          0%, 100% { opacity: 0.7; }
-          50% { opacity: 1; }
-        }
-        .animate-pulse-slow { animation: pulse-slow 6s ease-in-out infinite; }
-        @keyframes pulse-slower {
-          0%, 100% { opacity: 0.5; }
-          50% { opacity: 0.8; }
-        }
-        .animate-pulse-slower { animation: pulse-slower 10s ease-in-out infinite; }
-      `}</style>
     </section>
   );
 } 

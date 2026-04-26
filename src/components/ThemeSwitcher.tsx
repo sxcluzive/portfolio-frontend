@@ -1,7 +1,5 @@
 import React from 'react';
-import { useTheme } from '../contexts/ThemeContext';
-
-type Theme = 'light' | 'matrix' | 'macos' | 'ubuntu';
+import { useTheme, type Theme } from '../contexts/ThemeContext';
 
 const themes = [
   {

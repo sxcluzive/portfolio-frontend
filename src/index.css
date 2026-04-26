@@ -255,3 +255,26 @@ html.lenis, html.lenis body {
 .lenis.lenis-scrolling iframe {
   pointer-events: none;
 }
+
+/* Shared animation keyframes (used by both Hero sections) */
+@keyframes pulse-slow {
+  0%, 100% { opacity: 0.7; }
+  50% { opacity: 1; }
+}
+
+@keyframes pulse-slower {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 0.8; }
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 6s ease-in-out infinite;
+}
+
+.animate-pulse-slower {
+  animation: pulse-slower 10s ease-in-out infinite;
+}
+
+.drop-shadow-glow {
+  filter: drop-shadow(0 0 2px #39ff1488);
+}
