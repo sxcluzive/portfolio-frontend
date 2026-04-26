@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Server, Brain, Network } from 'lucide-react';
+import { Server, Sparkles, Layers } from 'lucide-react';
 import { portfolioData } from '../data/portfolio-data';
 
 const scrollToSection = (target: string) => {
@@ -65,11 +65,11 @@ export default function HeroSection() {
               <span className="text-xs text-gray-700 dark:text-gray-200 font-mono">Backend</span>
             </div>
             <div className="flex flex-col items-center space-y-2 bg-white/60 dark:bg-gray-900/40 border border-gray-200/40 dark:border-gray-800/40 rounded-xl p-4 shadow-md backdrop-blur-md hover:scale-105 transition-transform">
-              <Brain size={32} className="text-blue-500" />
+              <Sparkles size={32} className="text-blue-500" />
               <span className="text-xs text-gray-700 dark:text-gray-200 font-mono">AI</span>
             </div>
             <div className="flex flex-col items-center space-y-2 bg-white/60 dark:bg-gray-900/40 border border-gray-200/40 dark:border-gray-800/40 rounded-xl p-4 shadow-md backdrop-blur-md hover:scale-105 transition-transform">
-              <Network size={32} className="text-blue-500" />
+              <Layers size={32} className="text-blue-500" />
               <span className="text-xs text-gray-700 dark:text-gray-200 font-mono">Distributed Systems</span>
             </div>
           </motion.div>

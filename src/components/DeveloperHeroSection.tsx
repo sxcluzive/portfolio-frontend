@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Terminal, Server, Brain, Network } from 'lucide-react';
+import { Terminal, Server, Sparkles, Layers } from 'lucide-react';
 import { portfolioData } from '../data/portfolio-data';
 
 const DeveloperHeroSection = () => {
@@ -64,11 +64,11 @@ const DeveloperHeroSection = () => {
               <span className="text-xs text-[var(--matrix)] font-mono">Backend</span>
             </div>
             <div className="flex flex-col items-center space-y-2 bg-[var(--terminal-gray)] border border-[var(--terminal-border)] rounded-xl p-4 shadow-md backdrop-blur-md hover:scale-105 transition-transform">
-              <Brain size={32} className="text-[var(--matrix)] drop-shadow-glow" />
+              <Sparkles size={32} className="text-[var(--matrix)] drop-shadow-glow" />
               <span className="text-xs text-[var(--matrix)] font-mono">AI</span>
             </div>
             <div className="flex flex-col items-center space-y-2 bg-[var(--terminal-gray)] border border-[var(--terminal-border)] rounded-xl p-4 shadow-md backdrop-blur-md hover:scale-105 transition-transform">
-              <Network size={32} className="text-[var(--matrix)] drop-shadow-glow" />
+              <Layers size={32} className="text-[var(--matrix)] drop-shadow-glow" />
               <span className="text-xs text-[var(--matrix)] font-mono">Distributed Systems</span>
             </div>
           </motion.div>
