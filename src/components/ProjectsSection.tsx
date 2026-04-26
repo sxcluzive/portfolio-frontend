@@ -2,10 +2,10 @@ import { motion } from 'framer-motion';
 import { portfolioData } from '../data/portfolio-data';
 import { Github, Code, Calendar, Terminal } from 'lucide-react';
 import { useView } from '../contexts/ViewContext';
+import { useEffect } from 'react';
 import Prism from 'prismjs';
 import 'prismjs/components/prism-python';
 import 'prismjs/themes/prism-tomorrow.css';
-import { useView } from '../contexts/ViewContext';
 
 const ProjectsSection = () => {
   const { isDeveloperMode } = useView();
