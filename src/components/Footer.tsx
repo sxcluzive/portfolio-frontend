@@ -57,12 +57,7 @@ export default function Footer({ isDeveloperMode }: FooterProps) {
           </div>
         </div>
 
-        {/* Copyright */}
-        <div className={`mt-4 pt-4 border-t text-center ${!isDeveloperMode ? 'border-gray-200/40 dark:border-gray-800/40' : 'border-[var(--terminal-border)]'}`}>
-          <p className={`text-xs font-light ${!isDeveloperMode ? 'text-gray-500 dark:text-gray-400' : 'text-[var(--muted-foreground)]'}`}>
-            © {new Date().getFullYear()} {profile.name}. All rights reserved.
-          </p>
-        </div>
+
       </div>
     </footer>
   );
