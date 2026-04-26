@@ -56,21 +56,21 @@ export const portfolioData = {
     leetcode: "leetcode.com/u/shubhxcluzive/",
     phone: "+91 9956023261",
     experienceYears: 4,
-    specialization: ["Backend Development", "API Design", "Cloud Services", "System Design"]
+    specialization: ["Backend Development", "Distributed Systems", "LLM Integration", "System Design"]
   },
 
   skills: [
     {
-      category: "Backend Development",
-      technologies: ["Python", "Django", "FastAPI", "Flask", "RESTful APIs", "System Design", "SQL", "Celery", "Microservices"]
+      category: "Languages & Backend",
+      technologies: ["Python", "FastAPI", "Django", "REST APIs", "System Design", "Microservices", "Asynchronous Processing (Celery, WebSockets)"]
     },
     {
-      category: "Database & Cloud",
-      technologies: ["PostgreSQL", "Elasticsearch", "Redis", "AWS (EC2, S3)", "Azure", "Zscaler ZIA cloud"]
+      category: "Databases & Caching",
+      technologies: ["PostgreSQL", "Redis", "Elasticsearch", "Snowflake"]
     },
     {
-      category: "AI/ML & DevOps",
-      technologies: ["Model Context Protocol (MCP)", "LLM Integration", "Predictive Analytics", "Docker", "CI/CD (Jenkins)", "Git"]
+      category: "Cloud & AI Systems",
+      technologies: ["AWS (EC2, S3, Lambda)", "Azure", "Docker", "LLM Integration", "RAG (Retrieval-Augmented Generation)"]
     }
   ],
 
@@ -83,13 +83,12 @@ export const portfolioData = {
       startDate: "2023-09",
       endDate: null,
       achievements: [
-        "Developed a FastAPI application on Azure App Service with PostgreSQL backend for test result analytics that reduced debugging time by 40%",
-        "Integrated MCP with test result data, reducing recurring failures by 35% and uncovering patterns across 1,000 daily tests",
-        "Optimized core web service by migrating from Elasticsearch to PostgreSQL, resulting in a 97-second reduction in latency",
-        "Designed and implemented Jenkins CI/CD pipelines with automated testing, reducing deployment time by 60%",
-        "Accelerated junior developer onboarding, reducing production bugs by 20% through code reviews"
+        "Designed and implemented a multi-stage NL→SQL pipeline adopted by 100+ users, reducing time-to-insight from days to minutes; built LLM-based query generation with entity extraction using Neo4j, async execution via Celery, WebSocket streaming and a Human-in-the-Loop (HITL) fallback for query validation on Snowflake.",
+        "Designed a semantic caching layer using embedding-based similarity with Redis, reducing repeated query latency from minutes to under 100 ms and significantly lowering LLM inference costs for high-overlap queries across business units.",
+        "Led development of a multi-level (L1/L2/L3) approval state machine replacing a manual spreadsheet and email-based workflow for $50M annually in Restricted Cash Awards; enforced strict Pydantic validation and parameterized SQL to ensure data integrity, mitigate injection risks and enable end-to-end auditability.",
+        "Established code review practices and mentored junior engineers on distributed systems and performance optimization, reducing post-release defects by 20%."
       ],
-      technologies: ["Python", "Django", "FastAPI", "PostgreSQL", "RESTful APIs", "database design", "Stored Procedures"]
+      technologies: ["Python", "FastAPI", "REST APIs", "Database Design", "Distributed Systems", "Caching (Redis)", "Async Processing (Celery)"]
     },
     {
       company: "Zscaler",
@@ -99,9 +98,9 @@ export const portfolioData = {
       startDate: "2021-12",
       endDate: "2023-02",
       achievements: [
-        "Engineered resilient REST APIs supporting automatic tunnel failover, resulting in 98.9% uptime for critical cloud services",
-        "Improved API response time by 45% under peak load via optimized queries and caching",
-        "Updated technical documentation post-release to align with user feedback and improve onboarding"
+        "Implemented app-level retry logic with exponential backoff, reducing transient API failures by 8% and improving overall service reliability.",
+        "Reduced peak-load API latency by 45% through query optimization, indexing and app-level caching, improving reliability under increased traffic.",
+        "Led API contract standardization initiative adopted by multiple partner teams, improving cross-team integration velocity by 25%."
       ],
       technologies: ["Python", "Django", "Linux", "RESTful APIs", "Ubuntu Linux", "Linux tools", "Scripting", "Git"]
     },
@@ -113,8 +112,8 @@ export const portfolioData = {
       startDate: "2021-03",
       endDate: "2021-11",
       achievements: [
-        "Revamped and deployed automated test scripts for ZCC cloud builds that identified 15+ critical issues before production release",
-        "Created a cross-platform testing solution using Sikuli and OpenCV that reduced manual QA effort by 40% for repetitive workflows"
+        "Revamped & automated ZCC-cloud build validation scripts, proactively detecting 8+ critical issues pre-release & accelerating deployment cycles.",
+        "Created a cross-platform testing solution using Sikuli and OpenCV that reduced manual QA effort by 40% for repetitive workflows."
       ],
       technologies: ["Python", "Django", "Fedora", "RESTful APIs", "Ubuntu Linux", "Linux tools", "Scripting", "Git"]
     }
@@ -123,10 +122,10 @@ export const portfolioData = {
   projects: [
     {
       name: "Natural Language Querying AI chatbot",
-      description: "Slack bot for SQLite database interaction using natural language queries via Google Bard API.",
+      description: "Developed SlackBot with Google Bard API to translate natural language queries into SQL, enabling intuitive interaction with SQLite DB.",
       github: "https://github.com/sxcluzive/Slack-Bot",
-      technologies: ["Slack-Bolt Python Framework", "Google Bard API", "SQLite"],
-      year: 2020,
+      technologies: ["Slack-Bolt Python Framework", "Google Bard API", "Docker", "SQLite"],
+      year: 2023,
       code: `from slack_bolt import App
 import google.generativeai as genai
 import sqlite3
@@ -162,10 +161,10 @@ class DatabaseBot:
     },
     {
       name: "E-commerce API",
-      description: "FastAPI backend with PostgreSQL and async request handling for high-performance e-commerce operations.",
+      description: "Built e-commerce backend with FastAPI, PostgreSQL and SQLAlchemy with asynchronous request handling, indexed DB schema, and optimized queries to ensure high performance under concurrent user load.",
       github: "https://github.com/sxcluzive/ecommerce-api",
       technologies: ["FastAPI", "Celery", "Asyncio", "Redis", "JWT", "API design"],
-      year: 2020,
+      year: 2021,
       code: `from fastapi import FastAPI, Depends, HTTPException
 from sqlalchemy.ext.asyncio import AsyncSession, create_async_engine
 from sqlalchemy.orm import sessionmaker, declarative_base
@@ -202,39 +201,51 @@ async def list_products(
   metrics: [
     {
       category: "performance",
-      metric: "latency_reduction",
-      value: "97 seconds",
-      description: "Latency reduction achieved through optimization"
+      metric: "cache_latency",
+      value: "<100ms",
+      description: "Semantic cache hit latency with Redis"
     },
     {
       category: "performance",
-      metric: "deployment_efficiency",
-      value: "60%",
-      description: "Deployment time reduction"
-    },
-    {
-      category: "performance",
-      metric: "uptime_achievement",
-      value: "98.9%",
-      description: "Critical service availability"
-    },
-    {
-      category: "performance",
-      metric: "API Optimization",
+      metric: "api_optimization",
       value: "45%",
-      description: "API response time improvement"
+      description: "Peak-load API latency reduction"
+    },
+    {
+      category: "performance",
+      metric: "time_to_insight",
+      value: "Days→Min",
+      description: "NL→SQL pipeline reducing analyst wait time"
     },
     {
       category: "impact",
-      metric: "bugs_prevented",
-      value: "15+",
-      description: "Critical issues identified before production"
+      metric: "pipeline_adoption",
+      value: "100+",
+      description: "Users adopted the NL→SQL pipeline"
     },
     {
       category: "impact",
-      metric: "QA Efficiency",
+      metric: "workflow_value",
+      value: "$50M",
+      description: "Annual Restricted Cash Awards managed via approval system"
+    },
+    {
+      category: "impact",
+      metric: "qa_efficiency",
       value: "40%",
       description: "Reduction in manual QA effort"
+    },
+    {
+      category: "impact",
+      metric: "defect_reduction",
+      value: "20%",
+      description: "Post-release defect reduction through code reviews & mentoring"
+    },
+    {
+      category: "impact",
+      metric: "integration_velocity",
+      value: "25%",
+      description: "Cross-team integration velocity improvement"
     }
   ]
 }; 

@@ -49,7 +49,7 @@ export default function HeroSection() {
               Backend Engineer
             </h2>
             <p className="text-lg text-gray-500 dark:text-gray-300 max-w-2xl mx-auto leading-relaxed">
-              Specialized in Backend Development, API Design, Cloud Services, System Design with 4 years of experience.
+              Specialized in Backend Development, Distributed Systems, LLM Integration, System Design with 4+ years of experience building scalable systems and LLM-powered data platforms.
             </p>
           </motion.div>
 
