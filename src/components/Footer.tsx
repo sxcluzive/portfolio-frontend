@@ -1,4 +1,5 @@
-import { Phone, Mail, Linkedin, Github, Code } from 'lucide-react';
+import { Phone, Mail, Linkedin, Github } from 'lucide-react';
+import { SiLeetcode } from 'react-icons/si';
 import { portfolioData } from '../data/portfolio-data';
 
 interface FooterProps {
@@ -52,7 +53,7 @@ export default function Footer({ isDeveloperMode }: FooterProps) {
               aria-label="LeetCode"
               className={`group p-1.5 rounded-md border transition-all duration-200 ${!isDeveloperMode ? 'border-gray-200/60 dark:border-gray-700/60 hover:border-orange-400 dark:hover:border-orange-500 hover:bg-orange-50/80 dark:hover:bg-orange-900/20' : 'border-[var(--terminal-border)] hover:border-[var(--matrix)] hover:bg-[var(--terminal-gray)]'}`}
             >
-                              <Code className={`w-4 h-4 transition-colors ${!isDeveloperMode ? 'text-gray-600 dark:text-gray-300 group-hover:text-orange-600 dark:group-hover:text-orange-400' : 'text-[var(--foreground)] group-hover:text-[var(--matrix)]'}`} />
+                              <SiLeetcode className={`w-4 h-4 transition-colors ${!isDeveloperMode ? 'text-gray-600 dark:text-gray-300 group-hover:text-orange-600 dark:group-hover:text-orange-400' : 'text-[var(--foreground)] group-hover:text-[var(--matrix)]'}`} />
             </a>
           </div>
         </div>
