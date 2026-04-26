@@ -8,10 +8,11 @@ import ApiPlayground from './components/ApiPlayground';
 import Footer from './components/Footer';
 import { ThemeProvider, useTheme } from './contexts/ThemeContext';
 import { ViewProvider, useView } from './contexts/ViewContext';
+import { SpeedInsights } from "@vercel/speed-insights/react";
+import { Analytics } from "@vercel/analytics/react";
 import ThemeSwitcher from './components/ThemeSwitcher';
 import ViewToggle from './components/ViewToggle';
 import { useIsMobile } from './hooks/useIsMobile';
-import { Analytics } from '@vercel/analytics/react';
 import Lenis from 'lenis';
 import { useEffect } from 'react';
 import { useScroll, useSpring, motion } from 'framer-motion';
@@ -89,6 +90,8 @@ function AppContent() {
       <ProjectsSection />
       <MetricsSection />
       <Footer isDeveloperMode={isDeveloperMode} />
+      <SpeedInsights />
+      <Analytics />
     </div>
   );
 }
