@@ -60,15 +60,15 @@ export default function HeroSection() {
             transition={{ duration: 0.8, delay: 0.6 }}
             className="flex justify-center space-x-8 mb-8"
           >
-            <div className="flex flex-col items-center space-y-2 bg-white/60 dark:bg-gray-900/40 border border-gray-200/40 dark:border-gray-800/40 rounded-xl p-4 shadow-md backdrop-blur-md hover:scale-105 transition-transform">
+            <div className="flex flex-col items-center space-y-2 bg-white/60 dark:bg-gray-900/40 border border-gray-200/40 dark:border-gray-800/40 rounded-xl p-4 shadow-md backdrop-blur hover:scale-105 transition-transform">
               <Server size={32} className="text-blue-500" />
               <span className="text-xs text-gray-700 dark:text-gray-200 font-mono">Backend</span>
             </div>
-            <div className="flex flex-col items-center space-y-2 bg-white/60 dark:bg-gray-900/40 border border-gray-200/40 dark:border-gray-800/40 rounded-xl p-4 shadow-md backdrop-blur-md hover:scale-105 transition-transform">
+            <div className="flex flex-col items-center space-y-2 bg-white/60 dark:bg-gray-900/40 border border-gray-200/40 dark:border-gray-800/40 rounded-xl p-4 shadow-md backdrop-blur hover:scale-105 transition-transform">
               <Cpu size={32} className="text-blue-500" />
               <span className="text-xs text-gray-700 dark:text-gray-200 font-mono">AI</span>
             </div>
-            <div className="flex flex-col items-center space-y-2 bg-white/60 dark:bg-gray-900/40 border border-gray-200/40 dark:border-gray-800/40 rounded-xl p-4 shadow-md backdrop-blur-md hover:scale-105 transition-transform">
+            <div className="flex flex-col items-center space-y-2 bg-white/60 dark:bg-gray-900/40 border border-gray-200/40 dark:border-gray-800/40 rounded-xl p-4 shadow-md backdrop-blur hover:scale-105 transition-transform">
               <Layers size={32} className="text-blue-500" />
               <span className="text-xs text-gray-700 dark:text-gray-200 font-mono">Distributed Systems</span>
             </div>
@@ -83,19 +83,19 @@ export default function HeroSection() {
           >
             <button
               onClick={() => scrollToSection('skills')}
-              className="px-6 py-3 rounded-lg bg-white/60 dark:bg-gray-900/40 border border-gray-200/40 dark:border-gray-800/40 hover:bg-white/80 dark:hover:bg-gray-800/60 transition-all duration-150 text-gray-700 dark:text-gray-200 hover:text-gray-900 dark:hover:text-white font-medium focus:outline-none focus:ring-2 focus:ring-blue-200/40 dark:focus:ring-blue-700/40 backdrop-blur-md"
+              className="px-6 py-3 rounded-lg bg-white/60 dark:bg-gray-900/40 border border-gray-200/40 dark:border-gray-800/40 hover:bg-white/80 dark:hover:bg-gray-800/60 transition-all duration-150 text-gray-700 dark:text-gray-200 hover:text-gray-900 dark:hover:text-white font-medium focus:outline-none focus:ring-2 focus:ring-blue-200/40 dark:focus:ring-blue-700/40 backdrop-blur"
             >
               View Technical Stack
             </button>
             <button
               onClick={() => scrollToSection('experience')}
-              className="px-6 py-3 rounded-lg bg-white/60 dark:bg-gray-900/40 border border-gray-200/40 dark:border-gray-800/40 hover:bg-white/80 dark:hover:bg-gray-800/60 transition-all duration-150 text-gray-700 dark:text-gray-200 hover:text-gray-900 dark:hover:text-white font-medium focus:outline-none focus:ring-2 focus:ring-blue-200/40 dark:focus:ring-blue-700/40 backdrop-blur-md"
+              className="px-6 py-3 rounded-lg bg-white/60 dark:bg-gray-900/40 border border-gray-200/40 dark:border-gray-800/40 hover:bg-white/80 dark:hover:bg-gray-800/60 transition-all duration-150 text-gray-700 dark:text-gray-200 hover:text-gray-900 dark:hover:text-white font-medium focus:outline-none focus:ring-2 focus:ring-blue-200/40 dark:focus:ring-blue-700/40 backdrop-blur"
             >
               Experience
             </button>
             <button
               onClick={() => scrollToSection('projects')}
-              className="px-6 py-3 rounded-lg bg-white/60 dark:bg-gray-900/40 border border-gray-200/40 dark:border-gray-800/40 hover:bg-white/80 dark:hover:bg-gray-800/60 transition-all duration-150 text-gray-700 dark:text-gray-200 hover:text-gray-900 dark:hover:text-white font-medium focus:outline-none focus:ring-2 focus:ring-blue-200/40 dark:focus:ring-blue-700/40 backdrop-blur-md"
+              className="px-6 py-3 rounded-lg bg-white/60 dark:bg-gray-900/40 border border-gray-200/40 dark:border-gray-800/40 hover:bg-white/80 dark:hover:bg-gray-800/60 transition-all duration-150 text-gray-700 dark:text-gray-200 hover:text-gray-900 dark:hover:text-white font-medium focus:outline-none focus:ring-2 focus:ring-blue-200/40 dark:focus:ring-blue-700/40 backdrop-blur"
             >
               Projects
             </button>

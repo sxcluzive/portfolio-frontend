@@ -42,14 +42,16 @@ function AppContent() {
       infinite: false,
     });
 
+    let animationId: number;
     function raf(time: number) {
       lenis.raf(time);
-      requestAnimationFrame(raf);
+      animationId = requestAnimationFrame(raf);
     }
 
-    requestAnimationFrame(raf);
+    animationId = requestAnimationFrame(raf);
 
     return () => {
+      cancelAnimationFrame(animationId);
       lenis.destroy();
     };
   }, [isMobile]);
@@ -101,7 +103,6 @@ function App() {
     <ThemeProvider>
       <ViewProvider>
         <AppContent />
-        <Analytics />
       </ViewProvider>
     </ThemeProvider>
   );

@@ -15,7 +15,7 @@ const DeveloperHeroSection = () => {
       <div className="container mx-auto px-[7.5%] relative z-10">
         {/* Terminal prompt left-aligned */}
         <div className="mb-8 flex justify-start">
-          <div className="inline-flex items-center space-x-2 bg-[var(--terminal-gray)] border border-[var(--terminal-border)] rounded-lg px-4 py-2 shadow-lg backdrop-blur-md relative">
+          <div className="inline-flex items-center space-x-2 bg-[var(--terminal-gray)] border border-[var(--terminal-border)] rounded-lg px-4 py-2 shadow-lg backdrop-blur relative">
             <div className="absolute -inset-1 rounded-lg bg-[var(--matrix)]/5 blur-sm pointer-events-none" />
             <Terminal size={20} className="text-[var(--matrix)]" />
             <span className="text-[var(--matrix)] font-mono text-sm">root@shubhxcluzive:~# whoami</span>
@@ -59,15 +59,15 @@ const DeveloperHeroSection = () => {
             transition={{ duration: 0.8, delay: 0.6 }}
             className="flex justify-center space-x-8 mb-8"
           >
-            <div className="flex flex-col items-center space-y-2 bg-[var(--terminal-gray)] border border-[var(--terminal-border)] rounded-xl p-4 shadow-md backdrop-blur-md hover:scale-105 transition-transform">
+            <div className="flex flex-col items-center space-y-2 bg-[var(--terminal-gray)] border border-[var(--terminal-border)] rounded-xl p-4 shadow-md backdrop-blur hover:scale-105 transition-transform">
               <Server size={32} className="text-[var(--matrix)] drop-shadow-glow" />
               <span className="text-xs text-[var(--matrix)] font-mono">Backend</span>
             </div>
-            <div className="flex flex-col items-center space-y-2 bg-[var(--terminal-gray)] border border-[var(--terminal-border)] rounded-xl p-4 shadow-md backdrop-blur-md hover:scale-105 transition-transform">
+            <div className="flex flex-col items-center space-y-2 bg-[var(--terminal-gray)] border border-[var(--terminal-border)] rounded-xl p-4 shadow-md backdrop-blur hover:scale-105 transition-transform">
               <Cpu size={32} className="text-[var(--matrix)] drop-shadow-glow" />
               <span className="text-xs text-[var(--matrix)] font-mono">AI</span>
             </div>
-            <div className="flex flex-col items-center space-y-2 bg-[var(--terminal-gray)] border border-[var(--terminal-border)] rounded-xl p-4 shadow-md backdrop-blur-md hover:scale-105 transition-transform">
+            <div className="flex flex-col items-center space-y-2 bg-[var(--terminal-gray)] border border-[var(--terminal-border)] rounded-xl p-4 shadow-md backdrop-blur hover:scale-105 transition-transform">
               <Layers size={32} className="text-[var(--matrix)] drop-shadow-glow" />
               <span className="text-xs text-[var(--matrix)] font-mono">Distributed Systems</span>
             </div>
@@ -87,7 +87,7 @@ const DeveloperHeroSection = () => {
               Scroll down to explore the API playground
             </p>
             <div className="flex justify-center">
-              <div className="w-6 h-10 border-2 border-[var(--terminal-border)] rounded-full flex justify-center bg-[var(--terminal-gray)] backdrop-blur-md">
+              <div className="w-6 h-10 border-2 border-[var(--terminal-border)] rounded-full flex justify-center bg-[var(--terminal-gray)] backdrop-blur">
                 <div className="w-1 h-3 bg-[var(--matrix)] rounded-full mt-2 animate-bounce"></div>
               </div>
             </div>

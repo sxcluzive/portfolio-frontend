@@ -36,7 +36,7 @@ const MetricsSection = () => {
           )}
           {isDeveloperMode && (
             <div className="mb-4 flex justify-start">
-              <div className="inline-flex items-center space-x-2 bg-[var(--terminal-gray)] border border-[var(--terminal-border)] rounded-lg px-4 py-2 mb-2 shadow-lg backdrop-blur-md relative">
+              <div className="inline-flex items-center space-x-2 bg-[var(--terminal-gray)] border border-[var(--terminal-border)] rounded-lg px-4 py-2 mb-2 shadow-lg backdrop-blur relative">
                 <div className="absolute -inset-1 rounded-lg bg-[var(--matrix)]/5 blur-sm pointer-events-none" />
                 <Terminal size={20} className="text-[var(--matrix)]" />
                 <span className="text-[var(--matrix)] font-mono text-sm">root@shubhxcluzive:~$</span>
@@ -54,7 +54,7 @@ const MetricsSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className={`p-4 transition-all duration-300 ${!isDeveloperMode ? 'bg-white/60 dark:bg-gray-900/40 border border-gray-200/40 dark:border-gray-800/40 rounded-xl shadow-md backdrop-blur-md hover:scale-105' : 'bg-[var(--terminal-gray)] border border-[var(--terminal-border)] rounded-lg hover:border-[var(--foreground)]'}`}
+              className={`p-4 transition-all duration-300 ${!isDeveloperMode ? 'bg-white/60 dark:bg-gray-900/40 border border-gray-200/40 dark:border-gray-800/40 rounded-xl shadow-md backdrop-blur hover:scale-105' : 'bg-[var(--terminal-gray)] border border-[var(--terminal-border)] rounded-lg hover:border-[var(--foreground)]'}`}
             >
               <div className="flex items-center mb-3">
                 {getIcon(metric.category)}
