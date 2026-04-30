@@ -1,7 +1,8 @@
 import { motion } from 'framer-motion';
 import { portfolioData } from '../data/portfolio-data';
-import { Zap, Target, BarChart3, Terminal } from 'lucide-react';
+import { Zap, Target, BarChart3, Terminal, Phone } from 'lucide-react';
 import { useView } from '../contexts/ViewContext';
+import { track } from '@vercel/analytics';
 
 const MetricsSection = () => {
   const { isDeveloperMode } = useView();
@@ -19,7 +20,7 @@ const MetricsSection = () => {
   };
 
   return (
-    <section id="metrics" className={`min-h-screen py-12 ${!isDeveloperMode ? 'bg-gradient-to-br from-gray-50 via-blue-50 to-gray-200 dark:from-gray-900 dark:via-gray-950 dark:to-gray-800' : 'bg-[var(--background)]'} text-[var(--foreground)]`}>
+    <section id="metrics" className={`pt-16 pb-8 ${!isDeveloperMode ? 'bg-gradient-to-br from-gray-50 via-blue-50 to-gray-200 dark:from-gray-900 dark:via-gray-950 dark:to-gray-800' : 'bg-[var(--background)]'} text-[var(--foreground)]`}>
       <div className={`container mx-auto ${isDeveloperMode ? 'px-[7.5%]' : 'px-[10%]'}`}>
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -91,6 +92,64 @@ const MetricsSection = () => {
           ))}
         </div>
       </div>
+
+      {/* Merged Footer for Normal View */}
+      {!isDeveloperMode && (
+        <div className="container mx-auto px-6 mt-12">
+          <motion.div 
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            className="pt-6 border-t border-gray-300/60 dark:border-gray-700/60 flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0"
+          >
+            <div className="flex items-center space-x-2 text-gray-800 dark:text-gray-200 font-medium">
+              <Phone className="w-3.5 h-3.5" />
+              <span className="font-mono text-xs">{portfolioData.profile.phone}</span>
+            </div>
+
+            <div className="flex items-center space-x-3">
+              <a
+                href={`mailto:${portfolioData.profile.email}`}
+                aria-label="Email"
+                onClick={() => track('social_link_clicked', { platform: 'Email' })}
+                className="group p-1.5 rounded-md border border-gray-300/80 dark:border-gray-600/80 hover:border-gray-500 dark:hover:border-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-200 shadow-sm"
+              >
+                <img src="/icons/gmail.svg" alt="Email" className="w-4 h-4 opacity-100 transition-transform group-hover:scale-110" />
+              </a>
+              <a
+                href={`https://${portfolioData.profile.linkedin}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn"
+                onClick={() => track('social_link_clicked', { platform: 'LinkedIn' })}
+                className="group p-1.5 rounded-md border border-gray-300/80 dark:border-gray-600/80 hover:border-blue-500 hover:bg-blue-50 dark:hover:bg-blue-900/30 transition-all duration-200 shadow-sm"
+              >
+                <img src="/icons/linkedin-svgrepo-com.svg" alt="LinkedIn" className="w-4 h-4 opacity-100 transition-transform group-hover:scale-110" />
+              </a>
+              <a
+                href={`https://${portfolioData.profile.github}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="GitHub"
+                onClick={() => track('social_link_clicked', { platform: 'GitHub' })}
+                className="group p-1.5 rounded-md border border-gray-300/80 dark:border-gray-600/80 hover:border-gray-800 hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-200 shadow-sm"
+              >
+                <img src="/icons/github.svg" alt="GitHub" className="w-4 h-4 opacity-100 transition-transform group-hover:scale-110" />
+              </a>
+              <a
+                href={`https://${portfolioData.profile.leetcode}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LeetCode"
+                onClick={() => track('social_link_clicked', { platform: 'LeetCode' })}
+                className="group p-1.5 rounded-md border border-gray-300/80 dark:border-gray-600/80 hover:border-orange-500 hover:bg-orange-50 dark:hover:bg-orange-900/30 transition-all duration-200 shadow-sm"
+              >
+                <img src="/icons/leetcode.svg" alt="LeetCode" className="w-4 h-4 opacity-100 transition-transform group-hover:scale-110" />
+              </a>
+            </div>
+          </motion.div>
+        </div>
+      )}
     </section>
   );
 };

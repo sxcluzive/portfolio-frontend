@@ -91,7 +91,7 @@ function AppContent() {
       
       <ProjectsSection />
       <MetricsSection />
-      <Footer isDeveloperMode={isDeveloperMode} />
+      {isDeveloperMode && <Footer isDeveloperMode={isDeveloperMode} />}
       <SpeedInsights />
       <Analytics />
     </div>

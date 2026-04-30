@@ -28,7 +28,11 @@ export default function Footer({ isDeveloperMode }: FooterProps) {
               onClick={() => track('social_link_clicked', { platform: 'Email' })}
               className={`group p-1.5 rounded-md border transition-all duration-200 ${!isDeveloperMode ? 'border-gray-200/60 dark:border-gray-700/60 hover:border-gray-400 dark:hover:border-gray-300 hover:bg-gray-50/80 dark:hover:bg-gray-800/60' : 'border-[var(--terminal-border)] hover:border-[var(--matrix)] hover:bg-[var(--terminal-gray)]'}`}
             >
-                              <Mail className={`w-4 h-4 transition-colors ${!isDeveloperMode ? 'text-gray-600 dark:text-gray-300 group-hover:text-gray-800 dark:group-hover:text-gray-200' : 'text-[var(--foreground)] group-hover:text-[var(--matrix)]'}`} />
+              {!isDeveloperMode ? (
+                <img src="/icons/gmail.svg" alt="Email" className="w-4 h-4 opacity-70 group-hover:opacity-100 transition-opacity" />
+              ) : (
+                <Mail className="w-4 h-4 transition-colors text-[var(--foreground)] group-hover:text-[var(--matrix)]" />
+              )}
             </a>
             <a
               href={`https://${profile.linkedin}`}
@@ -38,7 +42,11 @@ export default function Footer({ isDeveloperMode }: FooterProps) {
               onClick={() => track('social_link_clicked', { platform: 'LinkedIn' })}
               className={`group p-1.5 rounded-md border transition-all duration-200 ${!isDeveloperMode ? 'border-gray-200/60 dark:border-gray-700/60 hover:border-blue-400 dark:hover:border-blue-500 hover:bg-blue-50/80 dark:hover:bg-blue-900/20' : 'border-[var(--terminal-border)] hover:border-[var(--matrix)] hover:bg-[var(--terminal-gray)]'}`}
             >
-                              <Linkedin className={`w-4 h-4 transition-colors ${!isDeveloperMode ? 'text-gray-600 dark:text-gray-300 group-hover:text-blue-600 dark:group-hover:text-blue-400' : 'text-[var(--foreground)] group-hover:text-[var(--matrix)]'}`} />
+              {!isDeveloperMode ? (
+                <img src="/icons/linkedin-svgrepo-com.svg" alt="LinkedIn" className="w-4 h-4 opacity-70 group-hover:opacity-100 transition-opacity" />
+              ) : (
+                <Linkedin className="w-4 h-4 transition-colors text-[var(--foreground)] group-hover:text-[var(--matrix)]" />
+              )}
             </a>
             <a
               href={`https://${profile.github}`}
@@ -48,7 +56,11 @@ export default function Footer({ isDeveloperMode }: FooterProps) {
               onClick={() => track('social_link_clicked', { platform: 'GitHub' })}
               className={`group p-1.5 rounded-md border transition-all duration-200 ${!isDeveloperMode ? 'border-gray-200/60 dark:border-gray-700/60 hover:border-gray-800 dark:hover:border-gray-300 hover:bg-gray-50/80 dark:hover:bg-gray-800/60' : 'border-[var(--terminal-border)] hover:border-[var(--matrix)] hover:bg-[var(--terminal-gray)]'}`}
             >
-                              <Github className={`w-4 h-4 transition-colors ${!isDeveloperMode ? 'text-gray-600 dark:text-gray-300 group-hover:text-gray-800 dark:group-hover:text-gray-200' : 'text-[var(--foreground)] group-hover:text-[var(--matrix)]'}`} />
+              {!isDeveloperMode ? (
+                <img src="/icons/github.svg" alt="GitHub" className="w-4 h-4 opacity-70 group-hover:opacity-100 transition-opacity" />
+              ) : (
+                <Github className="w-4 h-4 transition-colors text-[var(--foreground)] group-hover:text-[var(--matrix)]" />
+              )}
             </a>
             <a
               href={`https://${profile.leetcode}`}
@@ -58,7 +70,11 @@ export default function Footer({ isDeveloperMode }: FooterProps) {
               onClick={() => track('social_link_clicked', { platform: 'LeetCode' })}
               className={`group p-1.5 rounded-md border transition-all duration-200 ${!isDeveloperMode ? 'border-gray-200/60 dark:border-gray-700/60 hover:border-orange-400 dark:hover:border-orange-500 hover:bg-orange-50/80 dark:hover:bg-orange-900/20' : 'border-[var(--terminal-border)] hover:border-[var(--matrix)] hover:bg-[var(--terminal-gray)]'}`}
             >
-                              <SiLeetcode className={`w-4 h-4 transition-colors ${!isDeveloperMode ? 'text-gray-600 dark:text-gray-300 group-hover:text-orange-600 dark:group-hover:text-orange-400' : 'text-[var(--foreground)] group-hover:text-[var(--matrix)]'}`} />
+              {!isDeveloperMode ? (
+                <img src="/icons/leetcode.svg" alt="LeetCode" className="w-4 h-4 opacity-70 group-hover:opacity-100 transition-opacity" />
+              ) : (
+                <SiLeetcode className="w-4 h-4 transition-colors text-[var(--foreground)] group-hover:text-[var(--matrix)]" />
+              )}
             </a>
           </div>
         </div>
