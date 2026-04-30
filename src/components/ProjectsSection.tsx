@@ -6,6 +6,7 @@ import { useEffect } from 'react';
 import Prism from 'prismjs';
 import 'prismjs/components/prism-python';
 import 'prismjs/themes/prism-tomorrow.css';
+import { track } from '@vercel/analytics';
 
 const ProjectsSection = () => {
   const { isDeveloperMode } = useView();
@@ -91,6 +92,7 @@ const ProjectsSection = () => {
                         href={project.github}
                         target="_blank"
                         rel="noopener noreferrer"
+                        onClick={() => track('project_clicked', { project: project.name, view: isDeveloperMode ? 'developer' : 'normal' })}
                         className={`inline-flex items-center space-x-2 px-4 py-2 rounded-md text-sm font-medium transition-colors ${!isDeveloperMode ? 'bg-gradient-to-r from-blue-500 to-indigo-600 text-white hover:from-blue-600 hover:to-indigo-700 shadow-lg hover:shadow-xl' : 'bg-[var(--terminal-bg)] text-[var(--matrix)] border-2 border-[var(--matrix)] hover:bg-[var(--matrix)] hover:text-[var(--terminal-bg)] shadow-lg'}`}
                       >
                         <Github size={16} />

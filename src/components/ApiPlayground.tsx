@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Terminal } from 'lucide-react';
 import { useView } from '../contexts/ViewContext';
 import { portfolioData } from '../data/portfolio-data';
+import { track } from '@vercel/analytics';
 
 // Generate API-focused activity data with current timestamps
 const generateApiActivities = () => {
@@ -221,6 +222,7 @@ export default function ApiPlayground() {
   const executeAPI = async (endpoint: string) => {
     // setIsLoading(endpoint);
     setSelectedEndpoint(endpoint);
+    track('api_call', { endpoint });
     const startTime = Date.now();
     const data = mockApiResponses[endpoint] || { error: 'Endpoint not found' };
     const responseTime = Date.now() - startTime;

@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { Server, Cpu, Layers } from 'lucide-react';
 import { portfolioData } from '../data/portfolio-data';
+import { track } from '@vercel/analytics';
 
 const scrollToSection = (target: string) => {
   const element = document.getElementById(target);
@@ -82,19 +83,28 @@ export default function HeroSection() {
             className="flex flex-wrap justify-center gap-4 mt-8"
           >
             <button
-              onClick={() => scrollToSection('skills')}
+              onClick={() => {
+                track('navigation_clicked', { target: 'skills', view: 'normal' });
+                scrollToSection('skills');
+              }}
               className="px-6 py-3 rounded-lg bg-white/60 dark:bg-gray-900/40 border border-gray-200/40 dark:border-gray-800/40 hover:bg-white/80 dark:hover:bg-gray-800/60 transition-all duration-150 text-gray-700 dark:text-gray-200 hover:text-gray-900 dark:hover:text-white font-medium focus:outline-none focus:ring-2 focus:ring-blue-200/40 dark:focus:ring-blue-700/40 backdrop-blur"
             >
               View Technical Stack
             </button>
             <button
-              onClick={() => scrollToSection('experience')}
+              onClick={() => {
+                track('navigation_clicked', { target: 'experience', view: 'normal' });
+                scrollToSection('experience');
+              }}
               className="px-6 py-3 rounded-lg bg-white/60 dark:bg-gray-900/40 border border-gray-200/40 dark:border-gray-800/40 hover:bg-white/80 dark:hover:bg-gray-800/60 transition-all duration-150 text-gray-700 dark:text-gray-200 hover:text-gray-900 dark:hover:text-white font-medium focus:outline-none focus:ring-2 focus:ring-blue-200/40 dark:focus:ring-blue-700/40 backdrop-blur"
             >
               Experience
             </button>
             <button
-              onClick={() => scrollToSection('projects')}
+              onClick={() => {
+                track('navigation_clicked', { target: 'projects', view: 'normal' });
+                scrollToSection('projects');
+              }}
               className="px-6 py-3 rounded-lg bg-white/60 dark:bg-gray-900/40 border border-gray-200/40 dark:border-gray-800/40 hover:bg-white/80 dark:hover:bg-gray-800/60 transition-all duration-150 text-gray-700 dark:text-gray-200 hover:text-gray-900 dark:hover:text-white font-medium focus:outline-none focus:ring-2 focus:ring-blue-200/40 dark:focus:ring-blue-700/40 backdrop-blur"
             >
               Projects

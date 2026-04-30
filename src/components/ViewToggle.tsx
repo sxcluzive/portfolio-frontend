@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Users, Code } from 'lucide-react';
+import { track } from '@vercel/analytics';
 
 interface ViewToggleProps {
   onViewChange: (view: 'normal' | 'developer') => void;
@@ -32,7 +33,10 @@ const ViewToggle = ({ onViewChange, currentView }: ViewToggleProps) => {
       }`}>
         {isDev ? (
           <button
-            onClick={() => onViewChange('normal')}
+            onClick={() => {
+              track('view_mode_changed', { mode: 'normal' });
+              onViewChange('normal');
+            }}
             className="flex items-center space-x-2 px-3 py-2 rounded-md text-sm font-medium transition-all duration-200 bg-[var(--terminal-gray)] text-[var(--matrix)] border border-[var(--terminal-border)] shadow-sm hover:bg-[var(--matrix)] hover:text-[var(--terminal-bg)]"
           >
             <Users size={16} />
@@ -40,7 +44,10 @@ const ViewToggle = ({ onViewChange, currentView }: ViewToggleProps) => {
           </button>
         ) : (
           <button
-            onClick={() => onViewChange('developer')}
+            onClick={() => {
+              track('view_mode_changed', { mode: 'developer' });
+              onViewChange('developer');
+            }}
             className="flex items-center space-x-2 px-3 py-2 rounded-md text-sm font-medium transition-all duration-200 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 shadow-sm hover:bg-gray-50 dark:hover:bg-gray-700"
           >
             <Code size={16} />
