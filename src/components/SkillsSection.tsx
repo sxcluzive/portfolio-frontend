@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { 
   Network, 
@@ -5,7 +6,7 @@ import {
   Server,
   Brain, 
   Database, 
-  UserCog
+  Layers
 } from 'lucide-react';
 import { 
   SiPython, 
@@ -20,7 +21,9 @@ import {
   SiNeo4J, 
   SiAmazonwebservices, 
   SiDocker, 
-  SiLinux 
+  SiLinux,
+  SiKubernetes,
+  SiRabbitmq
 } from 'react-icons/si';
 import { VscAzure } from 'react-icons/vsc';
 
@@ -36,6 +39,7 @@ const skillsData = [
       { name: "REST APIs", icon: <Network className="w-6 h-6 text-blue-500" /> },
       { name: "Microservices", icon: <Server className="w-6 h-6 text-indigo-500" /> },
       { name: "Celery", icon: <SiCelery className="w-6 h-6 text-green-500" /> },
+      { name: "RabbitMQ", icon: <SiRabbitmq className="w-6 h-6 text-orange-500" /> },
       { name: "WebSockets", icon: <Radio className="w-6 h-6 text-purple-500" /> },
     ]
   },
@@ -57,32 +61,33 @@ const skillsData = [
       { name: "AWS", icon: <SiAmazonwebservices className="w-6 h-6 text-orange-500" /> },
       { name: "Azure", icon: <VscAzure className="w-6 h-6 text-blue-500" /> },
       { name: "Docker", icon: <SiDocker className="w-6 h-6 text-blue-600" /> },
+      { name: "Kubernetes", icon: <SiKubernetes className="w-6 h-6 text-blue-500" /> },
       { name: "Linux", icon: <SiLinux className="w-6 h-6 text-yellow-500" /> },
       { name: "LLM Integration", icon: <Brain className="w-6 h-6 text-purple-500" /> },
       { name: "RAG", icon: <Database className="w-6 h-6 text-blue-400" /> },
-      { name: "HITL", icon: <UserCog className="w-6 h-6 text-pink-500" /> },
+      { name: "Semantic Cache", icon: <Layers className="w-6 h-6 text-teal-400" /> },
     ]
   }
 ];
 
-const Block = ({ data, delay = 0 }: { data: any, delay?: number }) => (
+const Block = ({ data, delay = 0, isMiddle = false }: { data: any, delay?: number, isMiddle?: boolean }) => (
   <motion.div
     initial={{ opacity: 0, y: 20 }}
     whileInView={{ opacity: 1, y: 0 }}
     transition={{ duration: 0.5, delay }}
     viewport={{ once: true }}
-    className="bg-white/60 dark:bg-gray-900/40 border border-gray-200/50 dark:border-gray-700/50 rounded-2xl p-6 shadow-lg backdrop-blur-md hover:shadow-xl hover:border-blue-500/30 dark:hover:border-blue-400/30 transition-all duration-300 flex flex-col h-full"
+    className={`bg-white/60 dark:bg-gray-900/40 border border-gray-200/50 dark:border-gray-700/50 rounded-2xl p-6 shadow-lg backdrop-blur-md hover:shadow-xl hover:border-blue-500/30 dark:hover:border-blue-400/30 transition-all duration-300 flex flex-col h-full ${isMiddle ? 'lg:translate-y-12' : ''}`}
   >
     <h3 className="text-lg font-bold text-gray-800 dark:text-gray-200 mb-6 text-center border-b border-gray-200 dark:border-gray-700/50 pb-4">
       {data.title}
     </h3>
-    <div className="flex flex-wrap justify-center gap-3 mt-auto mb-auto">
+    <div className="flex flex-col space-y-1 mt-2">
       {data.items.map((item: any, i: number) => (
-        <div key={i} className="flex items-center px-3 py-2 bg-gray-50/80 dark:bg-gray-800/80 rounded-lg shadow-sm border border-gray-100 dark:border-gray-700/50 hover:-translate-y-1 hover:shadow-md transition-all duration-200">
-          <div className="flex-shrink-0 mr-2 flex items-center justify-center">
+        <div key={i} className="flex items-center px-4 py-3 rounded-xl hover:bg-white/40 dark:hover:bg-gray-800/40 transition-colors duration-200 group cursor-default">
+          <div className="flex-shrink-0 mr-4 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
             {item.icon}
           </div>
-          <span className="text-sm font-medium text-gray-700 dark:text-gray-200 whitespace-nowrap">
+          <span className="text-base font-medium text-gray-700 dark:text-gray-200">
             {item.name}
           </span>
         </div>
@@ -92,28 +97,64 @@ const Block = ({ data, delay = 0 }: { data: any, delay?: number }) => (
 );
 
 const SkillsSection = () => {
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    setMousePosition({
+      x: e.clientX - rect.left,
+      y: e.clientY - rect.top,
+    });
+  };
+
   return (
-    <section id="skills" className="min-h-screen flex flex-col justify-center bg-gradient-to-br from-gray-50 via-blue-50 to-gray-200 dark:from-gray-900 dark:via-gray-950 dark:to-gray-800 py-24 relative overflow-hidden">
+    <section 
+      id="skills" 
+      onMouseMove={handleMouseMove}
+      className="min-h-screen flex flex-col justify-center bg-gradient-to-br from-gray-50 via-blue-50 to-gray-200 dark:from-gray-900 dark:via-gray-950 dark:to-gray-800 py-24 relative overflow-hidden group"
+    >
+      {/* Subtle Dot Grid Background */}
+      <div 
+        className="absolute inset-0 z-0 opacity-[0.03] dark:opacity-[0.05] pointer-events-none"
+        style={{
+          backgroundImage: 'radial-gradient(currentColor 1px, transparent 1px)',
+          backgroundSize: '24px 24px',
+        }}
+      />
+
+      {/* Interactive Cursor Spotlight */}
+      <motion.div
+        className="pointer-events-none absolute inset-0 z-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+        animate={{
+          background: `radial-gradient(600px circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(59,130,246,0.06), transparent 40%)`
+        }}
+      />
+
       <div className="container mx-auto px-[5%] lg:px-[10%] relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-16 lg:mb-20"
         >
           <h2 className="text-5xl font-bold text-gray-900 dark:text-white mb-4">Technical Skills</h2>
         </motion.div>
 
-        {/* 3-Column Categories Layout */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+        {/* 3-Column Categories Layout with Stagger */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto pb-12">
           {skillsData.map((category, idx) => (
-            <Block key={category.id} data={category} delay={0.1 * (idx + 1)} />
+            <Block 
+              key={category.id} 
+              data={category} 
+              delay={0.1 * (idx + 1)} 
+              isMiddle={idx === 1} // Stagger the middle column
+            />
           ))}
         </div>
       </div>
       
-      {/* Background decoration */}
+      {/* Existing Background decoration */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-blue-400/5 dark:bg-blue-500/5 rounded-full blur-[100px] pointer-events-none" />
     </section>
   );
