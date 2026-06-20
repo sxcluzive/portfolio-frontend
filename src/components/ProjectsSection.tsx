@@ -45,7 +45,7 @@ const ProjectsSection = () => {
         </motion.div>
 
         <div className="grid md:grid-cols-2 gap-6">
-          {projects.map((project, index) => (
+          {projects.map((project) => (
             <motion.div
               key={project.name}
               initial={{ opacity: 0, y: 50 }}

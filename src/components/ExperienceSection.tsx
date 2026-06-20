@@ -41,7 +41,7 @@ const ExperienceSection = () => {
             className="absolute left-8 top-0 bottom-0 w-0.5 bg-blue-500 dark:bg-blue-400 shadow-[0_0_10px_rgba(59,130,246,0.5)]"
           ></motion.div>
 
-          {experience.map((job, index) => (
+          {experience.map((job) => (
             <motion.div
               key={`${job.company}-${job.startDate}`}
               initial={{ opacity: 0, x: -50 }}
