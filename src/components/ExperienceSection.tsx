@@ -106,7 +106,7 @@ const ExperienceSection = () => {
                 <div>
                   <h4 className="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-3">Technologies Used</h4>
                   <div className="flex flex-wrap gap-2">
-                    {job.technologies.map((tech, techIndex) => (
+                    {job.technologies.map((tech) => (
                       <span
                         key={tech}
                         className="bg-white/60 dark:bg-gray-800/60 text-gray-700 dark:text-gray-300 px-3 py-1 rounded-full text-sm border border-gray-200/40 dark:border-gray-700/40 hover:bg-blue-500 hover:text-white transition-all duration-200 backdrop-blur-sm"
