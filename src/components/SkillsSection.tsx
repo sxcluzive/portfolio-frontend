@@ -147,7 +147,6 @@ const SkillsSection = () => {
             <Block 
               key={category.id} 
               data={category} 
-              delay={0.1 * (idx + 1)} 
               isMiddle={idx === 1} // Stagger the middle column
             />
           ))}
