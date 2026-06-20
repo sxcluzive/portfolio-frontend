@@ -72,8 +72,8 @@ const skillsData = [
 
 const Block = ({ data, delay = 0, isMiddle = false }: { data: any, delay?: number, isMiddle?: boolean }) => (
   <motion.div
-    initial={{ opacity: 0, y: 20 }}
-    whileInView={{ opacity: 1, y: 0 }}
+    initial={{ opacity: 0 }}
+    whileInView={{ opacity: 1 }}
     transition={{ duration: 0.5, delay }}
     viewport={{ once: true }}
     className={`bg-white/60 dark:bg-gray-900/40 border border-gray-200/50 dark:border-gray-700/50 rounded-2xl p-6 shadow-lg backdrop-blur-md hover:shadow-xl hover:border-blue-500/30 dark:hover:border-blue-400/30 transition-all duration-300 flex flex-col h-full ${isMiddle ? 'lg:translate-y-12' : ''}`}

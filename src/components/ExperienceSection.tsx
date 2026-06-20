@@ -44,8 +44,8 @@ const ExperienceSection = () => {
           {experience.map((job) => (
             <motion.div
               key={`${job.company}-${job.startDate}`}
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
               viewport={{ once: true }}
               className="relative mb-12 ml-16"
@@ -53,7 +53,7 @@ const ExperienceSection = () => {
               {/* Timeline dot */}
               <div className="absolute -left-8 top-4 w-4 h-4 bg-blue-500 rounded-full border-4 border-white dark:border-gray-900 shadow-md"></div>
 
-              <div className="bg-white/60 dark:bg-gray-900/40 border border-gray-200/40 dark:border-gray-800/40 rounded-xl p-6 shadow-md backdrop-blur transition-all duration-300 will-change-transform">
+              <div className="bg-white/60 dark:bg-gray-900/40 border border-gray-200/40 dark:border-gray-800/40 rounded-xl p-6 shadow-md backdrop-blur transition-all duration-300">
                 <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
                   <div>
                     <h3 className="text-2xl font-bold text-gray-800 dark:text-gray-200 mb-2">
