@@ -70,7 +70,7 @@ const skillsData = [
   }
 ];
 
-const Block = ({ data, delay = 0, isMiddle = false }: { data: any, delay?: number, isMiddle?: boolean }) => (
+const Block = ({ data, delay = 0 }: { data: any, delay?: number }) => (
   <motion.div
     initial={{ opacity: 0 }}
     whileInView={{ opacity: 1 }}
@@ -147,7 +147,6 @@ const SkillsSection = () => {
             <Block 
               key={category.id} 
               data={category} 
-              isMiddle={idx === 1} // Stagger the middle column
             />
           ))}
         </div>
