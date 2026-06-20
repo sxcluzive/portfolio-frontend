@@ -74,7 +74,7 @@ const ProjectsSection = () => {
                       {project.technologies.map((tech) => (
                         <span
                           key={tech}
-                          className={`px-3 py-1 rounded-full text-sm font-medium transition-colors ${!isDeveloperMode ? 'bg-white/80 dark:bg-slate-800/80 text-slate-700 dark:text-slate-300 border border-slate-200/60 dark:border-slate-700/60 hover:bg-blue-500 hover:text-white backdrop-blur-sm' : 'bg-[var(--terminal-gray)] text-[var(--matrix)] border border-[var(--terminal-border)] hover:bg-[var(--matrix)] hover:text-[var(--terminal-bg)]'}`}
+                          className={`px-3 py-1 rounded-full text-sm font-medium transition-all duration-300 ${!isDeveloperMode ? 'bg-white/80 dark:bg-slate-800/80 text-slate-700 dark:text-slate-300 border border-slate-200/60 dark:border-slate-700/60 hover:bg-blue-500 hover:text-white' : 'bg-[var(--terminal-gray)] text-[var(--matrix)] border border-[var(--terminal-border)] hover:bg-[var(--matrix)] hover:text-[var(--terminal-bg)]'}`}
                         >
                           {tech}
                         </span>

@@ -84,7 +84,7 @@ const Block = ({ data, delay = 0, isMiddle = false }: { data: any, delay?: numbe
     <div className="flex flex-col space-y-1 mt-2">
       {data.items.map((item: any, i: number) => (
         <div key={i} className="flex items-center px-4 py-3 rounded-xl hover:bg-white/40 dark:hover:bg-gray-800/40 transition-colors duration-200 group cursor-default">
-          <div className="flex-shrink-0 mr-4 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+          <div className="flex-shrink-0 mr-4 flex items-center justify-center group-hover:scale-110 transition-transform duration-300 transform-gpu">
             {item.icon}
           </div>
           <span className="text-base font-medium text-gray-700 dark:text-gray-200">
