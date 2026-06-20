@@ -124,7 +124,7 @@ export default function HeroSection() {
           scrollToSection('skills');
         }}
       >
-        <span className="text-xs font-medium mb-3 text-gray-500 dark:text-gray-400 group-hover:text-blue-500 dark:group-hover:text-blue-400 transition-colors uppercase tracking-widest">Scroll to explore</span>
+        <span className="text-xs font-medium mb-3 text-gray-500 dark:text-gray-400 group-hover:text-blue-500 dark:group-hover:text-blue-400 transition-colors tracking-wide">Scroll down to explore</span>
         <div className="w-6 h-10 border-2 border-gray-400/50 dark:border-gray-500/50 group-hover:border-blue-500 dark:group-hover:border-blue-400 rounded-full flex justify-center bg-white/30 dark:bg-gray-900/30 backdrop-blur transition-colors">
           <div className="w-1 h-2.5 bg-gray-500 dark:bg-gray-400 group-hover:bg-blue-500 dark:group-hover:bg-blue-400 rounded-full mt-2 animate-bounce transition-colors"></div>
         </div>
