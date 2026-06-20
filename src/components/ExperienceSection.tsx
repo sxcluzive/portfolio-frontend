@@ -91,17 +91,13 @@ const ExperienceSection = () => {
                   </h4>
                   <ul className="space-y-2">
                     {job.achievements.map((achievement, achievementIndex) => (
-                      <motion.li
+                      <li
                         key={achievementIndex}
-                        initial={{ opacity: 0, x: -20 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.5, delay: achievementIndex * 0.1 }}
-                        viewport={{ once: true }}
                         className="flex items-start"
                       >
                         <span className="text-blue-500 mr-2 mt-1">•</span>
                         <span className="text-gray-600 dark:text-gray-300">{achievement}</span>
-                      </motion.li>
+                      </li>
                     ))}
                   </ul>
                 </div>
@@ -111,16 +107,12 @@ const ExperienceSection = () => {
                   <h4 className="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-3">Technologies Used</h4>
                   <div className="flex flex-wrap gap-2">
                     {job.technologies.map((tech, techIndex) => (
-                      <motion.span
+                      <span
                         key={tech}
-                        initial={{ opacity: 0, scale: 0.8 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 0.3, delay: techIndex * 0.1 }}
-                        viewport={{ once: true }}
                         className="bg-white/60 dark:bg-gray-800/60 text-gray-700 dark:text-gray-300 px-3 py-1 rounded-full text-sm border border-gray-200/40 dark:border-gray-700/40 hover:bg-blue-500 hover:text-white transition-all duration-200 backdrop-blur-sm"
                       >
                         {tech}
-                      </motion.span>
+                      </span>
                     ))}
                   </div>
                 </div>

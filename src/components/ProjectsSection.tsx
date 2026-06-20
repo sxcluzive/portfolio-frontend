@@ -72,16 +72,12 @@ const ProjectsSection = () => {
                     {/* Technologies */}
                     <div className="flex flex-wrap gap-2 mb-4">
                       {project.technologies.map((tech, techIndex) => (
-                        <motion.span
+                        <span
                           key={tech}
-                          initial={{ opacity: 0, scale: 0.8 }}
-                          whileInView={{ opacity: 1, scale: 1 }}
-                          transition={{ duration: 0.3, delay: techIndex * 0.1 }}
-                          viewport={{ once: true }}
                           className={`px-3 py-1 rounded-full text-sm font-medium transition-colors ${!isDeveloperMode ? 'bg-white/80 dark:bg-slate-800/80 text-slate-700 dark:text-slate-300 border border-slate-200/60 dark:border-slate-700/60 hover:bg-blue-500 hover:text-white backdrop-blur-sm' : 'bg-[var(--terminal-gray)] text-[var(--matrix)] border border-[var(--terminal-border)] hover:bg-[var(--matrix)] hover:text-[var(--terminal-bg)]'}`}
                         >
                           {tech}
-                        </motion.span>
+                        </span>
                       ))}
                     </div>
 
