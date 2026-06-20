@@ -1,11 +1,13 @@
+import { Suspense, lazy } from 'react';
 import HeroSection from './components/HeroSection';
 import DeveloperHeroSection from './components/DeveloperHeroSection';
-import SkillsSection from './components/SkillsSection';
-import ExperienceSection from './components/ExperienceSection';
-import ProjectsSection from './components/ProjectsSection';
-import MetricsSection from './components/MetricsSection';
-import ApiPlayground from './components/ApiPlayground';
-import Footer from './components/Footer';
+
+const SkillsSection = lazy(() => import('./components/SkillsSection'));
+const ExperienceSection = lazy(() => import('./components/ExperienceSection'));
+const ProjectsSection = lazy(() => import('./components/ProjectsSection'));
+const MetricsSection = lazy(() => import('./components/MetricsSection'));
+const ApiPlayground = lazy(() => import('./components/ApiPlayground'));
+const Footer = lazy(() => import('./components/Footer'));
 import { ThemeProvider, useTheme } from './contexts/ThemeContext';
 import { ViewProvider, useView } from './contexts/ViewContext';
 import { SpeedInsights } from "@vercel/speed-insights/react";
@@ -103,20 +105,22 @@ function AppContent() {
       
       {isDeveloperMode ? <DeveloperHeroSection /> : <HeroSection />}
       
-      {!isDeveloperMode && (
-        <>
-          <SkillsSection />
-          <ExperienceSection />
-        </>
-      )}
-      
-      {isDeveloperMode && (
-        <ApiPlayground />
-      )}
-      
-      <ProjectsSection />
-      <MetricsSection />
-      {isDeveloperMode && <Footer isDeveloperMode={isDeveloperMode} />}
+      <Suspense fallback={<div className="min-h-screen bg-transparent w-full" />}>
+        {!isDeveloperMode && (
+          <>
+            <SkillsSection />
+            <ExperienceSection />
+          </>
+        )}
+        
+        {isDeveloperMode && (
+          <ApiPlayground />
+        )}
+        
+        <ProjectsSection />
+        <MetricsSection />
+        {isDeveloperMode && <Footer isDeveloperMode={isDeveloperMode} />}
+      </Suspense>
       <SpeedInsights />
       <Analytics />
     </div>
