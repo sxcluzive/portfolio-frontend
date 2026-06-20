@@ -143,7 +143,7 @@ const SkillsSection = () => {
 
         {/* 3-Column Categories Layout with Stagger */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto pb-12">
-          {skillsData.map((category, idx) => (
+          {skillsData.map((category) => (
             <Block 
               key={category.id} 
               data={category} 
