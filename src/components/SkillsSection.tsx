@@ -76,7 +76,7 @@ const Block = ({ data, delay = 0, isMiddle = false }: { data: any, delay?: numbe
     whileInView={{ opacity: 1 }}
     transition={{ duration: 0.5, delay }}
     viewport={{ once: true }}
-    className={`bg-white/60 dark:bg-gray-900/40 border border-gray-200/50 dark:border-gray-700/50 rounded-2xl p-6 shadow-lg backdrop-blur-md hover:shadow-xl hover:border-blue-500/30 dark:hover:border-blue-400/30 transition-shadow transition-colors duration-300 flex flex-col h-full ${isMiddle ? 'lg:translate-y-12' : ''}`}
+    className="bg-white/60 dark:bg-gray-900/40 border border-gray-200/50 dark:border-gray-700/50 rounded-2xl p-6 shadow-lg backdrop-blur-md hover:shadow-xl hover:border-blue-500/30 dark:hover:border-blue-400/30 transition-shadow transition-colors duration-300 flex flex-col h-full"
   >
     <h3 className="text-lg font-bold text-gray-800 dark:text-gray-200 mb-6 text-center border-b border-gray-200 dark:border-gray-700/50 pb-4">
       {data.title}
