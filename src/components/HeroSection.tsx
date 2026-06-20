@@ -31,7 +31,7 @@ export default function HeroSection() {
         >
           {/* Main heading */}
           <motion.h1
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 1, y: 0 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-5xl sm:text-6xl font-bold text-gray-900 dark:text-white mb-4 font-heading"
@@ -112,6 +112,23 @@ export default function HeroSection() {
           </motion.div>
         </motion.div>
       </div>
+
+      {/* Scroll down indicator */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1, delay: 1.2 }}
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center justify-center cursor-pointer group"
+        onClick={() => {
+          track('navigation_clicked', { target: 'scroll_indicator', view: 'normal' });
+          scrollToSection('skills');
+        }}
+      >
+        <span className="text-xs font-medium mb-3 text-gray-500 dark:text-gray-400 group-hover:text-blue-500 dark:group-hover:text-blue-400 transition-colors uppercase tracking-widest">Scroll to explore</span>
+        <div className="w-6 h-10 border-2 border-gray-400/50 dark:border-gray-500/50 group-hover:border-blue-500 dark:group-hover:border-blue-400 rounded-full flex justify-center bg-white/30 dark:bg-gray-900/30 backdrop-blur transition-colors">
+          <div className="w-1 h-2.5 bg-gray-500 dark:bg-gray-400 group-hover:bg-blue-500 dark:group-hover:bg-blue-400 rounded-full mt-2 animate-bounce transition-colors"></div>
+        </div>
+      </motion.div>
     </section>
   );
 } 

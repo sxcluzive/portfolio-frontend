@@ -13,7 +13,9 @@ import { Analytics } from "@vercel/analytics/react";
 import ThemeSwitcher from './components/ThemeSwitcher';
 import ViewToggle from './components/ViewToggle';
 import { useIsMobile } from './hooks/useIsMobile';
+
 import Lenis from 'lenis';
+import Snap from 'lenis/snap';
 import { useEffect } from 'react';
 import { useScroll, useSpring, motion } from 'framer-motion';
 
@@ -33,28 +35,51 @@ function AppContent() {
     // Only initialize Lenis on desktop
     if (isMobile) return;
 
-    const lenis = new Lenis({
-      duration: 1.2,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      orientation: 'vertical',
-      gestureOrientation: 'vertical',
-      wheelMultiplier: 1,
-      infinite: false,
-    });
-
+    let lenis: Lenis;
+    let snap: Snap | undefined;
     let animationId: number;
-    function raf(time: number) {
-      lenis.raf(time);
-      animationId = requestAnimationFrame(raf);
-    }
 
-    animationId = requestAnimationFrame(raf);
+    const initLenis = () => {
+      lenis = new Lenis({
+        duration: 1.2,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        orientation: 'vertical',
+        gestureOrientation: 'vertical',
+        wheelMultiplier: 1,
+        infinite: false,
+      });
+
+      // Only initialize Lenis Snap for smooth section snapping in Normal Mode
+      if (!isDeveloperMode) {
+        snap = new Snap(lenis, {
+          type: 'mandatory', // 'mandatory' forces it to always magnetically stick to a card
+          duration: 1.5, // 1.5 seconds for a very smooth glide
+          easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // Silky smooth easing curve
+        });
+
+        // Add all section elements to the snap instance
+        const sections = document.querySelectorAll('section');
+        snap.addElements(Array.from(sections));
+      }
+
+      function raf(time: number) {
+        lenis.raf(time);
+        animationId = requestAnimationFrame(raf);
+      }
+
+      animationId = requestAnimationFrame(raf);
+    };
+
+    // Defer initialization to free up the main thread during initial load (improves INP)
+    const timeoutId = setTimeout(initLenis, 500);
 
     return () => {
-      cancelAnimationFrame(animationId);
-      lenis.destroy();
+      clearTimeout(timeoutId);
+      if (animationId) cancelAnimationFrame(animationId);
+      if (snap) snap.destroy();
+      if (lenis) lenis.destroy();
     };
-  }, [isMobile]);
+  }, [isMobile, isDeveloperMode]);
   
   return (
     <div className={`min-h-screen ${theme}-theme`}>

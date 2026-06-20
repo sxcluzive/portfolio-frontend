@@ -29,7 +29,7 @@ const DeveloperHeroSection = () => {
         >
           {/* Main heading */}
           <motion.h1
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 1, y: 0 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-6xl font-bold text-[var(--matrix)] mb-6 font-mono drop-shadow-xl"
@@ -94,6 +94,7 @@ const DeveloperHeroSection = () => {
           </motion.div>
         </motion.div>
       </div>
+
     </section>
   );
 };

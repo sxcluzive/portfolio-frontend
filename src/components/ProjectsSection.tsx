@@ -18,7 +18,7 @@ const ProjectsSection = () => {
   }, [projects]);
 
   return (
-    <section id="projects" className={`min-h-screen py-12 ${!isDeveloperMode ? 'bg-gradient-to-br from-slate-50 via-blue-50/30 to-indigo-50/50 dark:from-slate-900 dark:via-slate-800/50 dark:to-slate-900' : 'bg-[var(--background)]'} text-[var(--foreground)]`}>
+    <section id="projects" className={`min-h-screen ${!isDeveloperMode ? 'flex flex-col justify-center' : ''} py-12 ${!isDeveloperMode ? 'bg-gradient-to-br from-slate-50 via-blue-50/30 to-indigo-50/50 dark:from-slate-900 dark:via-slate-800/50 dark:to-slate-900' : 'bg-[var(--background)]'} text-[var(--foreground)]`}>
       <div className={`container mx-auto ${isDeveloperMode ? 'px-[7.5%]' : 'px-[10%]'}`}>
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -30,7 +30,6 @@ const ProjectsSection = () => {
           {!isDeveloperMode && (
             <>
               <h2 className="text-5xl font-bold text-slate-900 dark:text-white mb-4">Projects</h2>
-              <p className="text-xl text-slate-600 dark:text-slate-300">My recent work and code examples</p>
             </>
           )}
           {isDeveloperMode && (

@@ -19,7 +19,7 @@ const ExperienceSection = () => {
   });
 
   return (
-    <section id="experience" ref={containerRef} className="min-h-screen bg-gradient-to-br from-gray-50 via-blue-50 to-gray-200 dark:from-gray-900 dark:via-gray-950 dark:to-gray-800 py-20">
+    <section id="experience" ref={containerRef} className="min-h-screen flex flex-col justify-center bg-gradient-to-br from-gray-50 via-blue-50 to-gray-200 dark:from-gray-900 dark:via-gray-950 dark:to-gray-800 py-20">
       <div className="container mx-auto px-[10%]">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -28,8 +28,7 @@ const ExperienceSection = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-5xl font-bold text-gray-900 dark:text-white mb-4">Work Experience</h2>
-          <p className="text-xl text-gray-600 dark:text-gray-300">My professional journey in software engineering</p>
+          <h2 className="text-5xl font-bold text-gray-900 dark:text-white mb-4">Experience</h2>
         </motion.div>
 
         <div className="relative">
